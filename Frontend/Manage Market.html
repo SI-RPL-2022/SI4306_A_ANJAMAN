@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS Sidebars -->
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Style Sidebars -->
+    <link href="js/sidebars.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 100vh; position: fixed;">
+            <!-- Logo Website -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="text-decoration: none;" href="Transaksi Baru.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img class="sidebar-card-illustration mb-2" src="img/Anjaman_Logo.png" style="width: 50px" alt="...">
+                </div>
+                <div class="sidebar-brand-text mx-3 text-white">Anjaman Admin</div>
+            </a>
+            <!-- End of Logo Website -->
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="Dashboard.html" class="nav-link text-white" aria-current="page">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span class="mx-2">Dashboard</span></a>
+                    </a>
+                </li>
+                <li>
+                    <a href="Transaksi.html" class="nav-link text-white">
+                        <i class="fas fa-fw fa-money-bill-alt"></i>
+                        <span class="mx-2">Transaction</span></a>
+                    </a>
+                </li>
+                <li>
+                    <a href="Manage Market.html" class="nav-link active">
+                        <i class="fas fa-fw fa-shopping-bag"></i>
+                        <span class="mx-2">Manage Market</span></a>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong>Bangchan</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="b-example-divider"></div> -->
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="flex-column" style="padding-left: 300px;">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-2 text-gray-800 mt-4">Manage Market</h1>
+                        <a href="Create Market.html" class="btn btn-sm btn-success shadow-sm">
+                            <i class="fas fa-plus fa-sm text-white-50"></i>Create Market
+                        </a>
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Category</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Tas Belanja Wanita Anyaman</td>
+                                            <td>Tas Anyaman</td>
+                                            <td>Rp.120.000</td>
+                                            <td>
+                                                <a href="Edit Market.html" class="btn btn-info">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                                </a>
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+                
+            
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/datatables-demo.js"></script>
+
+    <!-- Script Sidebars -->
+    <script src="assets/bootstrap.bundle.min.js"></script>
+    <script src="js/sidebars.js"></script>
+
+
+</body>
+
+</html>

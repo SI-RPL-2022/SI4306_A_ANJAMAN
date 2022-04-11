@@ -21,6 +21,27 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <!-- Bootstrap core CSS Sidebars -->
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Style Sidebars -->
+    <link href="js/sidebars.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -28,96 +49,66 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
-            
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center " href="Transaksi Baru.html">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 100vh; position: fixed;">
+            <!-- Logo Website -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="text-decoration: none;" href="Transaksi Baru.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img class="sidebar-card-illustration mb-2" src="img/Anjaman_Logo.png" style="width: 50px" alt="...">
                 </div>
-                <div class="sidebar-brand-text mx-3">Anjaman Admin</div>
+                <div class="sidebar-brand-text mx-3 text-white">Anjaman Admin</div>
             </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link " href="Dashboard.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="Transaksi.html">
-                    <i class="fas fa-fw fa-money-bill-wave"></i>
-                    <span>Transaksi</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Edit Market.html">
-                    <i class="fas fa-fw fa-shopping-bag"></i>
-                    <span>Edit Market</span></a>
-            </li>
-
-            <hr class="sidebar-divider">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <!-- End of Logo Website -->
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="Dashboard.html" class="nav-link text-white" aria-current="page">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span class="mx-2">Dashboard</span></a>
+                    </a>
+                </li>
+                <li>
+                    <a href="Transaksi.html" class="nav-link active">
+                        <i class="fas fa-fw fa-money-bill-alt"></i>
+                        <span class="mx-2">Transaction</span></a>
+                    </a>
+                </li>
+                <li>
+                    <a href="Manage Market.html" class="nav-link text-white">
+                        <i class="fas fa-fw fa-shopping-bag"></i>
+                        <span class="mx-2">Manage Market</span></a>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong>Bangchan</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
             </div>
-        </ul>
+        </div>
+        <!-- <div class="b-example-divider"></div> -->
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="flex-column">
+        <div id="content-wrapper" class="flex-column" style="padding-left: 300px;">
 
             <!-- Main Content -->
             <div id="content">
-
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-backward fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Main Page
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </nav>
-                <!-- End of Topbar -->
                 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Transaksi</h1>
+                        <h1 class="h3 mb-0 text-gray-800 mt-4">Transaksi</h1>
                     </div>
 
                     <div class="card shadow">
@@ -206,6 +197,10 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
+
+    <!-- Script Sidebars -->
+    <script src="assets/bootstrap.bundle.min.js"></script>
+    <script src="js/sidebars.js"></script>
 
 
 </body>
