@@ -5,21 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Details</title>
+  <link rel="stylesheet" href="libraries/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Assistant:200,400,700&&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="frontend/libraries/xzoom/dist/xzoom.css" />
+  <link rel="stylesheet" href="frontend/libraries/gijgo/css/gijgo.min.css" />
 </head>
 
 <body>
-  <main class="login-box">
+  <main class="login-container">
     <div class="container">
-      <div class="row page-login d-flex align-items-center">
+      <div class="row page-login d-flex align-items-center" style="display: flex; justify-content: space-around;">
 
         <div class="section-left col-12 col-md-6">
-          <h1 class="mg-4">We explore the new
-            <br/>
-            life much better
-          </h1>
-
           <img src="anjaman logo.png" alt="" class="w-75 d-none d-sm-flex">
         </div>
 
@@ -27,35 +27,38 @@
           <div class="card">
             <div class="card-body">
               <div class="text-center">
-                <img src="frontend/images/" alt="" class="w-50 mb-4">
+                <h2>LOGIN</h2>
               </div>
 
               <form action="">
                 <div class="form-group">
-                  <label for="exampleInputName">E-mail</label>
-                  <input type="text" class="form-control" id="exampleInputName">
+                  <label for="exampleInputEmail">Email Address</label>
+
+                  <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">Password</label>
+
                   <input type="password" class="form-control" id="exampleInputPassword1">
                 </div>
 
                 <div class="form-group form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
+
                   <label class="form-check-label" for="exampleCheck1">
                     Remember Me
                   </label>
                 </div>
 
+                <button type="submit" class="btn btn-login btn-block">
+                  Login
+                </button>
                 <p class="text-center mt-4">
-                  <a href="#">Forget your password?</a>
+                  <a href="#" style="color: black;">Forgot your password?</a>
                 </p> 
-
-                <button type="loginbutton" class="btn btn-primary">Login</button>
-
-                <p class="text-center mt-6">
-                  Belum punya akun? <a href="regis.html" class="regis">Register</a>
+                <p class="text-center mt-8">
+                  Don't have an account? <a href="register.html" class="register">Register</a>
                 </p> 
               </form>
             </div>
