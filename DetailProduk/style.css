@@ -1,0 +1,104 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    height: 90vh;
+    width: 80vw;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background-color: #FFF5EE;
+    width: 80%;
+    height: 60%;
+    border-radius: 8px;
+    display: flex;
+}
+
+.card .images,
+.card .infos {
+    width: 50%;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.reviews {
+    color: gold;
+}
+
+.info-content {
+    font-size: 12px;
+}
+
+.buttons {
+    height: 40px;
+    display: flex;
+}
+
+.buttons button {
+    width: 60%;
+    font: inherit;
+    border: 2px solid wheat;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.buttons button:hover {
+    color: white;
+    background-color: #E2A76F;
+}
+
+.slider {
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.slider img {
+    width: 70%;
+    margin: auto;
+    padding-top: 35px;
+}
+
+/* .img-slider {
+    display: flex;
+    height: 40%;
+    justify-content: space-between;
+    margin: auto;
+    width: 50%;
+}
+
+.img-slider div {
+    width: 20%;
+    height: 100%;
+}
+
+.img-slider img {
+    height: 100%;
+} */
