@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Details</title>
+  <link rel="stylesheet" href="libraries/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Assistant:200,400,700&&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="frontend/libraries/xzoom/dist/xzoom.css" />
+  <link rel="stylesheet" href="frontend/libraries/gijgo/css/gijgo.min.css" />
+</head>
+
+<body>
+  <main class="login-container">
+    <div class="container">
+      <div class="row page-login d-flex align-items-center" style="display: flex; justify-content: space-around;">
+
+        <div class="section-left col-12 col-md-6">
+          <img src="anjaman logo.png" alt="" class="w-75 d-none d-sm-flex">
+        </div>
+
+        <div class="section-right col-12 col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="text-center">
+                <h2>Register</h2>
+              </div>
+
+              <form action="">
+                <div class="form-group">
+                  <label for="exampleInputEmail">Email Address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail">Phone Number</label>
+                  <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Confim Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">
+                    I agree with privacy policy
+                  </label>
+                </div>
+
+                <button type="submit" class="btn btn-login btn-block">
+                  Register
+                </button>
+                <p class="text-center mt-16">
+                  Already have an account? <a href="login.html" class="login">Register</a>
+                </p> 
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="frontend/libraries/retina/retina.js"></script>
+  <script src="frontend/libraries/jquery/jquery-3.4.1.min.js"></script>
+  <script src="frontend/libraries/bootstrap/js/bootstrap.js"></script>
+  
+</body>
+
+<nav class="navbar navbar-light bg-light" style="width: 100%;">
+  <div class="container-fluid">
+    <div class="navbar-left">
+      <a class="navbar-brand" href="#">
+        <img src="images/Anjaman_Logo.png" alt="" />
+      </a>
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Menu -->
+      <ul class="navbar-nav ml-auto mr-3">
+        <li class="nav-item mx-md-2">
+          <a class="nav-link active" href="#">Beranda</a>
+        </li>
+        <li class="nav-item mx-md-2">
+          <a class="nav-link" href="#">Market</a>
+        </li>
+        <li class="nav-item mx-md-2">
+          <a class="nav-link" href="#">Keranjang</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-right">
+      <!-- Mobile button -->
+      <form class="form-inline d-sm-block d-md-none">
+        <button class="btn btn-login my-2 my-sm-0" style=" border-radius: 10px;">
+          Masuk
+        </button>
+      </form>
+      <!-- Desktop Button -->
+      <form class="form-inline my-2 my-lg-0 d-none d-md-block">
+        <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" style=" border-radius: 10px;">
+          Masuk
+        </button>
+      </form>
+    </div>
+  </div>
+  
+</nav>
+
+</html>
