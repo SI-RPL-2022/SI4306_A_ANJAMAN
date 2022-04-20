@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Profile</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="libraries/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Assistant:200,400,700&&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body id="page-top">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="images/Anjaman_Logo.png" alt="">
+          </a>
+    
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Menu -->
+            <ul class="navbar-nav ml-auto mr-auto">
+              <li class="nav-item mx-md-2">
+                <a class="nav-link active" href="#">Beranda</a>
+              </li>
+              <li class="nav-item mx-md-2">
+                <a class="nav-link" href="#">Market</a>
+              </li>
+              <li class="nav-item mx-md-2">
+                <a class="nav-link" href="#">Keranjang</a>
+              </li>
+            </ul>
+          </div>
+    
+          <form class="d-flex">
+            <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" style=" border-radius: 10px;">
+              Masuk
+            </button>
+          </form>
+    
+        </div>
+      </nav>
+
+    <!-- Page Wrapper -->
+    <div class="container-fluid" id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+                
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-black-800" style="font-weight: bold; padding-top: 30px;">My Account</h1>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Contact Information</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <table class="table">
+                                        <tr>
+                                            <th>Nama</th>
+                                            <td>Bangchan</td>
+                                        </tr>  
+                                        <tr>
+                                            <th>Email</th>
+                                            <td>bangchan@gmail.com</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>No. Telepon</th>
+                                            <td>08123456789</td>
+                                        </tr> 
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Area Chart -->
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Address</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <address>
+                                        Bangchan<br>
+                                        Jl. XXXXXXX<br>
+                                        Kelurahan XXXXX Kecamatan XXXXX<br>
+                                        Bandung<br>
+                                        Jawa Barat<br>
+                                        12345<br>
+                                        Indonesia<br>
+                                        T: 081335063414
+                                    </address>
+                                    <a href="Edit Address.html">Edit Address</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Area Chart -->
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">My Orders</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>No. Invoice</th>
+                                                <th>Ship To</th>
+                                                <th>Tanggal/Waktu</th>
+                                                <th>Product</th>
+                                                <th>Quantity</th>
+                                                <th>Total Order</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>12345</td>
+                                                <td>Bangchan</td>
+                                                <td>07/04/2022 15:36</td>
+                                                <td>Tas Anyaman Wanita</td>
+                                                <td>2</td>
+                                                <td>200000</td>
+                                                <td>Selesai</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <!-- End of Main Content -->
+
+            <!---footer -->
+            <footer class="pt-4 my-md-5 pt-md-5 border-top">
+                <div class="row">
+                    <div class="col-6 col-md" style="margin-left: 165px;">
+                        <h5>Get Connected</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Sumatra</a></li>
+                            <li><a class="text-muted" href="#">Indonesia</a></li>
+                            <li><a class="text-muted" href="#">081-234-567</a></li>
+                            <li><a class="text-muted" href="#">rpl@telkomuniversity</a></li>    
+                        </ul>
+                        <a href="https://www.facebook.com"><img class="mb-2" style="margin-right: 20px;" src="img/fb.png" 
+                            width="24" height="24"></a>
+
+                        <a href="https://twitter.com"><img class="mb-2" style="margin-right: 20px;" src="img/twt.png" 
+                            width="24" height="24"></a>
+
+                        <a href="https://www.instagram.com"><img class="mb-2" src="img/ig.png" 
+                            width="24" height="24"></a>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>Office Location</h5>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8171126.271992024!2d96.1470617177015!3d-0.13188815385825967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e2aad6120570311%3A0x1def4d17e789deb4!2sPulau%20Sumatera!5e0!3m2!1sid!2sid!4v1650367659106!5m2!1sid!2sid" width="450" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+                    </div>
+
+                </div>
+            </footer>
+            <Footer class="bg-light mt-5">
+                <p class="text-center">2022 Copyright • All rights reserved • Made by Capstone Project Team A</p>
+            </Footer>
+    </div>
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
+    <script src="js/demo/chart-2-demo.js"></script>
+    <script src="js/demo/datatables-demo.js"></script>
+
+
+</body>
+
+</html>
