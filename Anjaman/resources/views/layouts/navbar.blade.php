@@ -9,10 +9,14 @@
             <!-- Menu -->
             <ul class="navbar-nav ml-auto mr-auto">
             <li class="nav-item mx-md-2">
-                <a class="nav-link active"  href="/">Beranda</a>
+                <a class="nav-link {{ ($title == "Home | Main") ? 'active' : '' }}"  href="/">
+                    Home
+                </a>
             </li>
             <li class="nav-item mx-md-2">
-                <a class="nav-link" href="/user/market">Market</a>
+                <a class="nav-link {{ ($title == "Home | Market") ? 'active' : '' }}"  href="/user/market">
+                    Market
+                </a>
             </li>
             <li class="nav-item mx-md-2">
                 <a class="nav-link" href="#">Keranjang</a>

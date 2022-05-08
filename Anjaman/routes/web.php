@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MarketController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,7 @@ use App\Http\Controllers\MarketController;
 */
 
 // main routes
-Route::get('/', function () {
-    return view('user/Landing_Page');
-});
+Route::get('/', [HomeController::class, 'main']);
 Route::get('/user/market', [MarketController::class, 'show']);
 
 // user management

@@ -12,6 +12,7 @@ class MarketController extends Controller
     public function show() {
         return view('user/market', [
             'products' => Product::getProducts(),
+            'title' => 'Home | Market'
         ]);
     }
 }
