@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MarketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('user/Landing_Page');
 });
+Route::get('/user/market', [MarketController::class, 'show']);
 
 // user management
 Route::group(['middleware' => 'guest'], function() {
@@ -30,3 +32,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/user/logout', [UserController::class, 'logout']);
     Route::get('/user/settings', [UserController::class, 'settings']);
 });
+
+// market management
+
