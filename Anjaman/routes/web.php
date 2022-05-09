@@ -18,7 +18,6 @@ use App\Http\Controllers\HomeController;
 
 // main routes
 Route::get('/', [HomeController::class, 'main']);
-Route::get('/user/market', [MarketController::class, 'show']);
 
 // user management
 Route::group(['middleware' => 'guest'], function() {
@@ -33,4 +32,5 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 // market management
-
+Route::get('/find',[MarketController::class, 'find'])->name('web.find');
+Route::get('/user/market', [MarketController::class, 'show']);

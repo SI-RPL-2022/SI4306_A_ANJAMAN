@@ -17,10 +17,10 @@
                     <a href="https://www.facebook.com"><img class="mb-2" style="margin-right: 20px;" src="{{ asset('images/fb.png') }}" 
                         width="24" height="24"></a>
 
-                    <a href="https://twitter.com"><img class="mb-2" style="margin-right: 20px;" src="{{ asset('images/fb.png') }}" 
+                    <a href="https://twitter.com"><img class="mb-2" style="margin-right: 20px;" src="{{ asset('images/twt.png') }}" 
                         width="24" height="24"></a>
 
-                    <a href="https://www.instagram.com"><img class="mb-2" src="{{ asset('images/fb.png') }}" 
+                    <a href="https://www.instagram.com"><img class="mb-2" src="{{ asset('images/ig.png') }}" 
                         width="24" height="24"></a>
                 </div>
 

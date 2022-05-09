@@ -76,7 +76,7 @@ Anjaman | Register
             </div>
 
             <div class="col-md-6 mb-3">
-              <label for="city">City</label>
+              <label for="city">Regency</label>
               <input type="text" class="form-control" id="city" name="city" placeholder="Regency" aria-label="City">
               @error('city')
                 <div class="error-message">{{ $message }}</div>
@@ -84,7 +84,7 @@ Anjaman | Register
             </div>
 
             <div class="col-md-6 mb-3">
-              <label for="subdistrict">Subistrict</label>
+              <label for="subdistrict">District</label>
               <input type="text" class="form-control" id="subdistrict" name="subdistrict" placeholder="District" aria-label="Subistrict">
               @error('subdistrict')
                 <div class="error-message">{{ $message }}</div>

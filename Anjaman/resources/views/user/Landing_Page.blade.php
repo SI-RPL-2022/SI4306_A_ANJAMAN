@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Anjaman
+Anjaman | Home
 @endsection
 @section('content')
   <header class="text-left">
@@ -11,7 +11,7 @@ Anjaman
     <p class="mt-3">
       Kami menghadirkan kesempatan bisnis untuk pengembangan usaha Anda
     </p>
-    <a href="#" class="btn btn-get-started px-4 mt-4">
+    <a href="user/market" class="btn btn-get-started px-4 mt-4">
       Get Started
     </a>
   </header>
@@ -82,16 +82,16 @@ Anjaman
                 <br>
                 produksi UMKM dari Tanah
                 <br>
-                ... yang berlokasi di Sumatera 
+                gambut yang berlokasi di Sumatera 
               </p>
-              <a href="">lihat semua produk</a>
+                <a style="text-decoration:underline; color:black; font-weight:bold" href="user/market">Lihat semua produk...</a>
             </section>
             <div class="section-right">
               <img src="images/Product_Keranjang.png" alt="" style="border-radius: 10px;">
               <div class="text-product">
-                <h2>Produk</h2>
+                <h2 style="color:lightgrey ">Produk</h2>
                 <h1>Keranjang Anyaman</h1>
-                <a href="">Lihat Detail</a>
+                <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
               </div>
             </div>
           </div>
@@ -102,9 +102,9 @@ Anjaman
             <section class="section-left">
               <img src="images/Product_Tas.png" alt="" style="border-radius: 10px;">
               <div class="text-product">
-                <h2>Produk</h2>
+                <h2 style="color:lightgrey ">Produk</h2>
                 <h1>Tas Anyaman</h1>
-                <a href="">Lihat Detail</a>
+                <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
               </div>
             </section>
             <div class="section-right">
@@ -119,9 +119,9 @@ Anjaman
             <div class="section-right">
               <img src="images/Product_Topi.png" alt="" style="border-radius: 10px; width: 260px;">
               <div class="text-product">
-                <h2>Produk</h2>
-                <h1>Keranjang Anyaman</h1>
-                <a href="">Lihat Detail</a>
+                <h2 style="color:lightgrey ">Produk</h2>
+                <h1>Topi Anyaman</h1>
+                <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
               </div>
             </div>
           </div>
@@ -132,9 +132,9 @@ Anjaman
             <section class="section-left">
               <img src="images/Product_Pot.png" alt="" style="border-radius: 10px; width: 320px;">
               <div class="text-product">
-                <h2>Produk</h2>
+                <h2 style="color:lightgrey ">Produk</h2>
                 <h1>Pot Anyaman</h1>
-                <a href="">Lihat Detail</a>
+                <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
               </div>
             </section>
             <div class="section-right">
