@@ -28,7 +28,7 @@ Route::group(['middleware' => 'guest'], function() {
 });
 Route::group(['middleware' => 'auth'], function() {
     Route::post('/user/logout', [UserController::class, 'logout']);
-    Route::get('/user/settings', [UserController::class, 'settings']);
+    Route::get('/user/profile', [UserController::class, 'profile']);
 });
 
 // market management

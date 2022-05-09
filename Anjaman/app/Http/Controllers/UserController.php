@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Address;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -90,6 +91,14 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/user/login');
+    }
+
+    public function profile() {
+        return view('user/profile', [
+            'user' => User::getUserByUsername(auth()->user()->username),
+            'addresses' => Address::getAddressesByUsername(auth()->user()->username),
+            'title' => 'Home | Profile'
+        ]);
     }
 
 }

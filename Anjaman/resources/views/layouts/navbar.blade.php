@@ -34,7 +34,7 @@
             <ul class="navbar-nav ml-auto mr-auto">
             <li>
             <form class="d-flex">
-                <a class="nav-link" style=" border-radius: 10px;" href="#">
+                <a class="nav-link {{ ($title == "Home | Profile") ? 'active' : '' }}"" style=" border-radius: 10px;" href="/user/profile">
                 {{ Auth::user()->fullname }}
                 </a>
             </form>

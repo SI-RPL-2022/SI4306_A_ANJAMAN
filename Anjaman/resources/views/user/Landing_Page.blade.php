@@ -89,7 +89,7 @@ Anjaman | Home
             <div class="section-right">
               <img src="images/Product_Keranjang.png" alt="" style="border-radius: 10px;">
               <div class="text-product">
-                <h2 style="color:lightgrey ">Produk</h2>
+                <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Keranjang Anyaman</h1>
                 <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
               </div>
@@ -102,7 +102,7 @@ Anjaman | Home
             <section class="section-left">
               <img src="images/Product_Tas.png" alt="" style="border-radius: 10px;">
               <div class="text-product">
-                <h2 style="color:lightgrey ">Produk</h2>
+                <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Tas Anyaman</h1>
                 <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
               </div>
@@ -119,7 +119,7 @@ Anjaman | Home
             <div class="section-right">
               <img src="images/Product_Topi.png" alt="" style="border-radius: 10px; width: 260px;">
               <div class="text-product">
-                <h2 style="color:lightgrey ">Produk</h2>
+                <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Topi Anyaman</h1>
                 <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
               </div>
@@ -132,7 +132,7 @@ Anjaman | Home
             <section class="section-left">
               <img src="images/Product_Pot.png" alt="" style="border-radius: 10px; width: 320px;">
               <div class="text-product">
-                <h2 style="color:lightgrey ">Produk</h2>
+                <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Pot Anyaman</h1>
                 <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
               </div>
