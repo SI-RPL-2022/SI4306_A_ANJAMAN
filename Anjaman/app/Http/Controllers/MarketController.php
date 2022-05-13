@@ -29,6 +29,31 @@ class MarketController extends Controller
             'title' => 'Home | Market'
     ]);
 
-
+    #CATEGORY#
+    
+    }
+    public function show_tas() {
+        return view('user/market', [
+            'products' => Product::getProductByCategory('tas'),
+            'title' => 'Home | Market'
+        ]);
+    }
+    public function show_keranjang() {
+        return view('user/market', [
+            'products' => Product::getProductByCategory('keranjang'),
+            'title' => 'Home | Market'
+        ]);
+    }
+    public function show_topi() {
+        return view('user/market', [
+            'products' => Product::getProductByCategory('topi'),
+            'title' => 'Home | Market'
+        ]);
+    }
+    public function show_pot() {
+        return view('user/market', [
+            'products' => Product::getProductByCategory('pot'),
+            'title' => 'Home | Market'
+        ]);
     }
 }

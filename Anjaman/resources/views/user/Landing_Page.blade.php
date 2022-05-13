@@ -91,7 +91,7 @@ Anjaman | Home
               <div class="text-product">
                 <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Keranjang Anyaman</h1>
-                <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
+                <a style="text-decoration:underline; color:black;" href="/user/market/category=keranjang">Lihat Detail</a>
               </div>
             </div>
           </div>
@@ -104,7 +104,7 @@ Anjaman | Home
               <div class="text-product">
                 <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Tas Anyaman</h1>
-                <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
+                <a style="text-decoration:underline; color:black;" href="/user/market/category=tas">Lihat Detail</a>
               </div>
             </section>
             <div class="section-right">
@@ -121,7 +121,7 @@ Anjaman | Home
               <div class="text-product">
                 <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Topi Anyaman</h1>
-                <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
+                <a style="text-decoration:underline; color:black;" href="/user/market/category=topi">Lihat Detail</a>
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@ Anjaman | Home
               <div class="text-product">
                 <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Pot Anyaman</h1>
-                <a style="text-decoration:underline; color:black;" href="">Lihat Detail</a>
+                <a style="text-decoration:underline; color:black;" href="/user/market/category=pot">Lihat Detail</a>
               </div>
             </section>
             <div class="section-right">

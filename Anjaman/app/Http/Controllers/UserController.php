@@ -100,5 +100,36 @@ class UserController extends Controller
             'title' => 'Home | Profile'
         ]);
     }
+    public function edit(int $id) {
+
+        // authorization
+        $address = Address::getAddressById($id);
+        if ($address->username != auth()->user()->username) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        return view('/user/editaddress', [
+        'address' => $address,
+        'title' => 'Home | Profile'
+        ]);
+    }
+
+    public function update(Request $request, int $id) {
+        
+        // validating input
+        $address = $request->validate([
+            'fullname' => 'required|min:3|max:255',
+            'phone_number' => 'required|size:12',
+            'province' => 'required|min:3|max:255',
+            'city' => 'required|min:3|max:255',
+            'subdistrict' => 'required|min:3|max:255',
+            'address' => 'required|min:3|max:255',
+            'postal_code' => 'required|min:3|max:255',
+        ]);
+
+        // updating address data
+        DB::table('addresses')->where('id', $id)->update($address);
+        return redirect('/user/profile');
+    }
 
 }

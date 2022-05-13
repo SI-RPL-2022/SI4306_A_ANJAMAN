@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 @section('title')
 Anjaman | Market
 @endsection
@@ -26,24 +26,29 @@ Anjaman | Market
      <!-- Category -->
      <ul class="tags" style= "margin-left: 70px;">
         <li class="tag" style="--color: #efd81d;">
-            <a href="#">All</a>
+            <a href="/user/market">All</a>
         </li>
         <li class="tag" style="--color: #41b883;">
-            <a href="#">Tas</a>
+            <a href="/user/market/category=tas">Tas</a>
         </li>
         <li class="tag" style="--color: #61dafb;">
-            <a href="#">Keranjang</a>
+            <a href="/user/market/category=keranjang">Keranjang</a>
         </li>
         <li class="tag" style="--color: #ff3e00;">
-            <a href="#">Topi</a>
+            <a href="/user/market/category=topi">Topi</a>
         </li>
         <li class="tag" style="--color: purple;">
-            <a href="#">Pot</a>
+            <a href="/user/market/category=pot">Pot</a>
         </li>
     </ul>
 
     <!-- Card -->
     <section class="row justify-content-left mt-4" style="margin: 0; padding: 0; margin-left: 70px;">
+    @if (count($products) == 0)
+                <div class="empty">
+                    <h5 style="color:#8E654E;">====Produk Tidak Ditemukan====</h5>
+                </div>
+            @endif
     @if(isset($products))
         @if(count(array($products)) > 0)
             @foreach ($products as $product)
@@ -63,3 +68,20 @@ Anjaman | Market
     </section>
     @endif
 @endsection
+
+<script>
+
+    const btn = document.getElementById('btn');
+
+    let index = 0;
+
+    const colors = ['salmon', 'green', 'blue', 'purple'];
+
+    btn.addEventListener('click', function onClick() {
+    btn.style.backgroundColor = colors[index];
+    btn.style.color = 'white';
+
+    index = index >= colors.length - 1 ? 0 : index + 1;
+    });
+    
+</script>

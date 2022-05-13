@@ -68,7 +68,9 @@ Anjaman | Profile
                     
                     <!-- Product Price -->
                     <td>
-                      Rp. <span class="product-price">{{ $product->price }}</span>
+                      Rp. <span class='product-price'>{{ $product->price }}
+                        <input type="hidden" class='product-price2' value='{{ $product->price }}'>
+                    </span>
                     </td>
                     <!-- End of Product Price -->
 
@@ -80,13 +82,13 @@ Anjaman | Profile
                         <input type="number"
                             name="products[{{ $j }}][quantity]"
                             id="quantity-{{ $j }}"
-                            class="product-quantity" value="1" min="1" max="{{ $product->stock }}">
+                            class="product-quantity" onchange="SubTotal()" value="1" min="1" max="{{ $product->stock }}">
                       </div>
                     </td>
                     <!-- End of Quantity -->
 
                     <td>
-                      <span class="summary-total">{{ $total }}</span>
+                      Rp. <span class="summary-total">{{$total}}</span>
                     </td>
                     <td>
                       <div class="col-1">
@@ -126,3 +128,21 @@ Anjaman | Profile
     </form>
   </div>
 @endsection
+
+<script>
+
+  var productPrices=document.getElementsByClassName('product-price2');
+  var productQuantities=document.getElementsByClassName('product-quantity');
+  var summaryTotal=document.getElementsByClassName('summary-total');
+
+  function SubTotal() {
+    {
+      for(i=0;i<productPrices.length;i++)
+        {
+          summaryTotal[i].innerText=(productPrices[i].value)*(productQuantities[i].value);
+        }
+    }
+    SubTotal();
+    };
+
+</script>

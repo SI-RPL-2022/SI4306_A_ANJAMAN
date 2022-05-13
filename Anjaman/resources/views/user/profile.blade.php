@@ -32,13 +32,13 @@ Anjaman | Profile
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Contact Information</h6>
+                                    <h6 class="m-0 font-weight-bold" style="color:#8E654E">Contact Information</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <table class="table">
                                         <tr>
-                                            <th>Nama</th>
+                                            <th>Name</th>
                                             <td>{{ $user->fullname }}</td>
                                         </tr>
                                         <tr>
@@ -50,11 +50,12 @@ Anjaman | Profile
                                             <td>{{ $user->email }}</td>
                                         </tr> 
                                         <tr>
-                                            <th>No. Telepon</th>
+                                            <th>Phone </th>
                                             <td>{{ $user->phone_number }}</td>
                                         </tr> 
                                     </table>
                                     
+        
                                 </div>
                             </div>
                         </div>
@@ -64,18 +65,18 @@ Anjaman | Profile
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Address</h6>
+                                    <h6 class="m-0 font-weight-bold" style="color:#8E654E">Address</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <address>
                                     <p class="fw-bold">{{ $addresses->fullname }}</p>
-                                    <p>{{ $addresses->phone_number }}</p>
-                                    <p>{{ $addresses->address . ', ' . $address->subdistrict . ', ' . $address->city . ', ' . $address->province }}
-                                    </p>
-                                    <p>{{ $addresses->postal_code }}</p>
+                                    <p>T: {{ $addresses->phone_number }}</p>
+                                    <p>{{ $addresses->address}}</p>
+                                    <p>{{ $addresses->subdistrict . ', ' . $addresses->city . ', ' . $addresses->province }}
+                                    <p>Zip Code : {{ $addresses->postal_code }}</p>
                                     </address>
-                                    <a href="Edit Address.html">Edit Address</a>
+                                    <a style="color:#8E654E" href="/user/editaddress/{{ $addresses->id }}">Edit Address</a>
                                 </div>
                             </div>
                         </div>
@@ -85,19 +86,19 @@ Anjaman | Profile
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">My Orders</h6>
+                                    <h6 class="m-0 font-weight-bold" style="color:#8E654E">My Orders</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>No. Invoice</th>
+                                                <th>Invoice No.</th>
                                                 <th>Ship To</th>
-                                                <th>Tanggal/Waktu</th>
+                                                <th>Date/Time</th>
                                                 <th>Product</th>
                                                 <th>Quantity</th>
-                                                <th>Total Order</th>
+                                                <th>Total Price</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
@@ -128,9 +129,4 @@ Anjaman | Profile
 
     </div>
     <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
 @endsection

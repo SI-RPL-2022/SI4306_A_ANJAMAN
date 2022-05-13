@@ -21,7 +21,6 @@ $(document).ready(function () {
             }
             sumaaryItem.innerHTML = totalItem
             summaryPrice.innerHTML = 'Rp. ' + totalPrice
-            summaryTotal.innerHTML = totalPrice
         };
 
         productQuantities.forEach(element => {

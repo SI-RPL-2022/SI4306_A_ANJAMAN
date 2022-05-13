@@ -28,4 +28,12 @@ class Product extends Model
             
         return $product;
     }
+
+    public static function getProductByCategory(String $category) {
+        $product = DB::table('products')
+            ->where('category', $category)
+            ->get();
+            
+        return $product;
+    }
 }

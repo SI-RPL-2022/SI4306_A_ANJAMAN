@@ -30,7 +30,7 @@ class Address extends Model
     public static function getAddressesByUsername(String $username) {
         $addresses = DB::table('addresses')
             ->where('username', $username)
-            ->get();
+            ->get()->first();
             
         return $addresses;
     }

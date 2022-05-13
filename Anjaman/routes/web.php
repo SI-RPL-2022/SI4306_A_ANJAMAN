@@ -30,13 +30,23 @@ Route::group(['middleware' => 'guest'], function() {
 Route::group(['middleware' => 'auth'], function() {
     Route::post('/user/logout', [UserController::class, 'logout']);
     Route::get('/user/profile', [UserController::class, 'profile']);
+    Route::get('/user/editaddress/{id}', [UserController::class, 'edit']);
+    Route::post('/user/updateaddress/{id}', [UserController::class, 'update']);
 });
 
 // market management
-Route::get('/find',[MarketController::class, 'find'])->name('web.find');
-Route::get('/user/market', [MarketController::class, 'show']);
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/find',[MarketController::class, 'find'])->name('web.find');
+    Route::get('/user/market', [MarketController::class, 'show']);
+    Route::get('/user/market/category=tas', [MarketController::class, 'show_tas']);
+    Route::get('/user/market/category=keranjang', [MarketController::class, 'show_keranjang']);
+    Route::get('/user/market/category=topi', [MarketController::class, 'show_topi']);
+    Route::get('/user/market/category=pot', [MarketController::class, 'show_pot']);
+});
 
 // cart management
-Route::get('/cart/store/{id}', [CartController::class, 'store']);
-Route::get('/user/cart', [CartController::class, 'show']);
-Route::get('/cart/destroy/{id}', [CartController::class, 'destroy']); // cek session
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/cart/store/{id}', [CartController::class, 'store']);
+    Route::get('/user/cart', [CartController::class, 'show']);
+    Route::get('/cart/destroy/{id}', [CartController::class, 'destroy']); // cek session
+});
