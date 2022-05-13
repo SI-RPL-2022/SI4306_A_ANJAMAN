@@ -53,7 +53,8 @@ Anjaman | Market
                     <h5 class="card-text text-center font-weight-bold">{{ $product->name }}</h5>
                     <p class="text-center">Rp. {{ $product->price }}</p>
                     <div class="card-body row justify-content-center">
-                        <a href="" class="btn btn-primary col-md-8 font-weight-bold text-dark" style="border: none; background-color: #EADFCE; font-size: 16px;">Add To Cart</a>
+                        <a href="/cart/store/{{ $product->id }}" class="btn btn-primary col-md-8 font-weight-bold text-dark" style="border: none; background-color: #EADFCE; font-size: 16px;">
+                        Add To Cart</a>
                     </div>
                 </div>
             </div>

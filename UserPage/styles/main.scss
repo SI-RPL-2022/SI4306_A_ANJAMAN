@@ -545,3 +545,60 @@ header {
     }
   }
 }
+
+// Keranjang
+.main-keranjang {
+  .container {
+    a {
+      color: #b1b1b1;
+      text-decoration: underline;
+      font-size: 14px;
+      :hover {
+        color: rgb(75, 75, 158);
+      }
+    }
+    h5 {
+      margin-top: 40px;
+      font-weight: bold;
+    }
+    .row {
+      .col-md-8 {
+        td {
+          vertical-align: middle;
+          font-size: 14px;
+          font-weight: bold;
+        }
+        .container-product {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          img {
+            width: 100px;
+            height: 140px;
+            object-fit: cover;
+          }
+          h6 {
+            font-weight: bold;
+          }
+          p {
+            font-size: 12px;
+            font-weight: normal;
+          }
+        }
+      }
+      .col-2 {
+        .card {
+          .card-body {
+            .card-sub {
+              font-size: 14px;
+              font-weight: bold;
+              .card-text-sub {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

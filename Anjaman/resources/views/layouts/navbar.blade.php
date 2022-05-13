@@ -19,7 +19,9 @@
                 </a>
             </li>
             <li class="nav-item mx-md-2">
-                <a class="nav-link" href="#">Keranjang</a>
+            <a class="nav-link {{ ($title == "Home | Cart") ? 'active' : '' }}"  href="/user/cart">
+                    Cart
+                </a>
             </li>
             @if (auth()->user()->role=="admin")                   
             <li class="nav-item">

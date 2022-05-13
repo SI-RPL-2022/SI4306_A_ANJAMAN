@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MarketController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,8 @@ Route::group(['middleware' => 'auth'], function() {
 // market management
 Route::get('/find',[MarketController::class, 'find'])->name('web.find');
 Route::get('/user/market', [MarketController::class, 'show']);
+
+// cart management
+Route::get('/cart/store/{id}', [CartController::class, 'store']);
+Route::get('/user/cart', [CartController::class, 'show']);
+Route::get('/cart/destroy/{id}', [CartController::class, 'destroy']); // cek session
