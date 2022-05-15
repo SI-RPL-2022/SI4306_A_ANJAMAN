@@ -55,7 +55,9 @@ Anjaman | Market
             <div class="card mr-4 mb-4 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
                 <img style="width:100%" src="{{ asset('images/' . $product->image) }}" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-text text-center font-weight-bold">{{ $product->name }}</h5>
+                    <a href="/user/details/{{ $product->id }}" style="text-decoration: none; color: black;">
+                        <h5 class="card-text text-center font-weight-bold">{{ $product->name }}</h5>
+                    </a>
                     <p class="text-center">Rp. {{ $product->price }}</p>
                     <div class="card-body row justify-content-center">
                         <a href="/cart/store/{{ $product->id }}" class="btn btn-primary col-md-8 font-weight-bold text-dark" style="border: none; background-color: #EADFCE; font-size: 16px;">

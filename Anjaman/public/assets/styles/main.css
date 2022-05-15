@@ -718,3 +718,107 @@ header .btn-get-started:hover {
 .main-keranjang .container .row .col-2 .card .card-body .card-sub .card-text-sub {
   text-align: right;
 }
+
+/* Details */
+
+.section-details {
+  margin-top: 80px;
+  margin-bottom: 200px;
+}
+
+.section-details .container .row .col-7 .card-images .xzoom-container {
+  display: block;
+  width: 600px;
+  height: 380px;
+}
+
+.section-details .container .row .col-7 .card-images .xzoom-container .xzoom {
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-bottom: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section-details .container .row .col-7 .card-images .xzoom-container .xzoom-thumbs .xzoom-gallery {
+  width: 140px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section-details .container .row .col-7 .card-images .xzoom-container .xactive {
+  border: 2px solid #1abc9c;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.section-details .container .row .col-5 .card-details .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.section-details .container .row .col-5 .card-details .title h2 {
+  font-weight: bold;
+}
+
+.section-details .container .row .col-5 .card-details .title .icon a {
+  font-size: 20px;
+}
+
+.section-details .container .row .col-5 .card-details .title .icon a i {
+  margin-left: 12px;
+}
+
+.section-details .container .row .col-5 .card-details .star-remaining {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.section-details .container .row .col-5 .card-details .category {
+  margin: 40px 0 40px 0;
+}
+
+.section-details .container .row .col-5 .card-details .category h5 {
+  font-size: 18px;
+}
+
+.section-details .container .row .col-5 .card-details .price {
+  font-weight: 800;
+  font-size: 30px;
+}
+
+.section-details .container-testimoni {
+  padding: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.section-details .container-testimoni .card .row .col-md-4 {
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.section-details .container-testimoni .card .row .col-md-4 img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-left: 20px;
+}

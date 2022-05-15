@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/market/category=keranjang', [MarketController::class, 'show_keranjang']);
     Route::get('/user/market/category=topi', [MarketController::class, 'show_topi']);
     Route::get('/user/market/category=pot', [MarketController::class, 'show_pot']);
+    Route::get('/user/details/{id}', [MarketController::class, 'product']);
 });
 
 // cart management

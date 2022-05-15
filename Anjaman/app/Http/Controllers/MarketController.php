@@ -56,4 +56,11 @@ class MarketController extends Controller
             'title' => 'Home | Market'
         ]);
     }
+
+    public function product(int $id) {
+        return view('user/details', [
+            'product' => Product::getProductById($id),
+            'title' => 'Home | Market'
+        ]);
+    }
 }
