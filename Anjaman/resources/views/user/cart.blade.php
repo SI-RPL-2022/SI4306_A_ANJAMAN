@@ -47,7 +47,6 @@ Anjaman | Profile
                 </tbody>
               @endif
 
-              {{-- products --}}
               {{-- summary --}}
               @for ($j = 0; $j < count($products); $j++)
                 @php
@@ -107,7 +106,7 @@ Anjaman | Profile
           @if (count($products) != 0)
             <div class="col-2 col-md-4">
               <div class="card">
-                <h5 class="card-header">Order Summary</h5>
+                <h5 class="card-header" style="margin-top: 0;">Order Summary</h5>
                 <div class="card-body">
                   <div class="card-sub row g-2">
                     <p class="card-text col-md-6 mb-3">Items</p>

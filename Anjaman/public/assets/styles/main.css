@@ -726,6 +726,38 @@ header .btn-get-started:hover {
   margin-bottom: 200px;
 }
 
+.section-details .container .row .col-7 .main-img {
+  height: 350px;
+}
+
+.section-details .container .row .col-7 .main-img img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section-details .container .row .col-7 .small-img-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.section-details .container .row .col-7 .small-img-group .small-img-col {
+  -ms-flex-preferred-size: 24%;
+      flex-basis: 24%;
+  cursor: pointer;
+  height: 100px;
+}
+
+.section-details .container .row .col-7 .small-img-group .small-img-col img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .section-details .container .row .col-7 .card-images .xzoom-container {
   display: block;
   width: 600px;
