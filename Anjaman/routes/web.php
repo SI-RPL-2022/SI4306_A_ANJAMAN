@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MarketController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/cart/destroy/{id}', [CartController::class, 'destroy']); // cek session
     Route::post('/user/checkout', [CartController::class, 'checkout']);
     Route::get('/user/checkout/{product_id}/', [CartController::class, 'checkoutOne']);
+});
+
+// admin management
+Route::group(['middleware' => ['auth', 'admin']], function() {
+    Route::get('/admin/transaksi', [AdminController::class, 'transaksi_show']);
+    Route::get('/admin/detailtransaksi/{id}', [AdminController::class, 'detail']);
+    Route::get('/admin/editstatus/{id}', [AdminController::class, 'transaksi_edit']);
+    Route::post('/admin/updatestatus/{id}', [AdminController::class, 'transaksi_update']);
 });
