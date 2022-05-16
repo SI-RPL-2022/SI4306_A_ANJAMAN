@@ -50,4 +50,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/cart/store/{id}', [CartController::class, 'store']);
     Route::get('/user/cart', [CartController::class, 'show']);
     Route::get('/cart/destroy/{id}', [CartController::class, 'destroy']); // cek session
+    Route::post('/user/checkout', [CartController::class, 'checkout']);
+    Route::get('/user/checkout/{product_id}/', [CartController::class, 'checkoutOne']);
 });

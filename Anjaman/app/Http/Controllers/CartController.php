@@ -56,10 +56,10 @@ class CartController extends Controller
         ]);
 
         // retrieving form request data
-        $suppliers = $request->input('suppliers');
+        $products = $request->input('products');
 
-        return view('cart/checkout', [
-            'suppliers' => $suppliers,
+        return view('user/checkout', [
+            'products' => $products,
             'addresses' => Address::getAddressesByUsername(auth()->user()->username),
             'active_address' => Address::getDefaultAddress(auth()->user()->username)->id,
             'title' => 'Cart | Checkout'
@@ -67,7 +67,7 @@ class CartController extends Controller
     }
 
     public function checkoutOne(int $product_id) {
-        return view('cart/checkoutOne', [
+        return view('user/checkoutOne', [
             'product' => Product::getProductById($product_id),
             'addresses' => Address::getAddressesByUsername(auth()->user()->username),
             'active_address' => Address::getDefaultAddress(auth()->user()->username)->id,

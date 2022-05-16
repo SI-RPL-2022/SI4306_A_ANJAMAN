@@ -16,7 +16,7 @@ Anjaman | Profile
 
 @section('content')
   <div class="main-keranjang">
-    <form action="/user/checkout" method="post" class="cart-show">
+    <form action="/user/checkout" method="post" class="cart-show" enctype="multipart/form-data">
       @csrf
       <div class="container">
         <h5>Shopping Cart</h5>
@@ -47,7 +47,7 @@ Anjaman | Profile
                 </tbody>
               @endif
 
-              {{-- summary --}}
+              {{-- products --}}
               @for ($j = 0; $j < count($products); $j++)
                 @php
                 $product = $products[$j];
@@ -57,7 +57,7 @@ Anjaman | Profile
                   <tr>
                     <th scope="row">
                       <div class="container-product">
-                        <img src="{{ asset('images/' . $product->image) }}" class="mg-fluid rounded" alt="">
+                        <img src="{{ asset('images/' . $product->image) }}" class="mg-fluid rounded" alt="{{ $product->image }}">
                         <div>
                           <h6>{{ $product->name }}</h6>
                           <p>Remaining: {{ $product->stock }}</p>
@@ -85,10 +85,25 @@ Anjaman | Profile
                       </div>
                     </td>
                     <!-- End of Quantity -->
-
                     <td>
                       Rp. <span class="summary-total">{{$total}}</span>
                     </td>
+                    <input type="hidden"
+                      name="products[{{ $j }}][image]"
+                      value="{{ $product->image }}">
+                    <input type="hidden"
+                      name="products[{{ $j }}][id]"
+                      value="{{ $product->id }}">
+                    <input type="hidden"
+                      name="products[{{ $j }}][name]"
+                      value="{{ $product->name }}">
+                    <input type="hidden"
+                      name="products[{{ $j }}][price]"
+                      value="{{ $product->price }}">
+                    <input type="hidden"
+                      name="products[{{ $j }}][stock]"
+                      value="{{ $product->stock }}">
+
                     <td>
                       <div class="col-1">
                         <a href="/cart/destroy/{{ $product->cart_id }}" class="delete-cart-item__btn" style="color: black;">
@@ -115,7 +130,7 @@ Anjaman | Profile
                     <p class="card-text-sub col-md-6 mb-3 summary-price">Rp. {{ $totalPrice }}</p>
                   </div>
                   <div class="card-footer bg-transparent border-black">
-                    <a href="#" class="btn btn-dark card-text col-md-12 mb-12">Checkout</a>
+                    <button type="submit" class="btn btn-dark card-text col-md-12 mb-12" role="button">Checkout</button>
                   </div>
                 </div>
               </div>
