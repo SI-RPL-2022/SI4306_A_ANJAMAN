@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MarketController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -53,6 +54,20 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/cart/destroy/{id}', [CartController::class, 'destroy']); // cek session
     Route::post('/user/checkout', [CartController::class, 'checkout']);
     Route::get('/user/checkout/{product_id}/', [CartController::class, 'checkoutOne']);
+});
+
+// order management
+Route::group(['middleware' => 'auth'], function() {
+    Route::post('/order/store', [OrderController::class, 'store']);
+    Route::get('/order/show/{status}', [OrderController::class, 'show']);
+    Route::get('/order/pay/{id}', [OrderController::class, 'pay']); // cek session
+    Route::get('/order/cancel/{id}', [OrderController::class, 'cancel']); // cek session
+    Route::get('/order/confirm/{id}', [OrderController::class, 'confirm']); // cek session
+    Route::get('/order/complaint/{id}', [OrderController::class, 'complaint']); // cek session
+    Route::get('/order/apply_cancel_request/{id}', [OrderController::class, 'apply_cancel_request']); // cek session
+    Route::get('/order/cancel_cancel_request/{id}', [OrderController::class, 'cancel_cancel_request']); // cek session
+    Route::get('/order/accept_cancel_request/{id}', [OrderController::class, 'accept_cancel_request']); // cek session
+    Route::get('/order/reject_cancel_request/{id}', [OrderController::class, 'reject_cancel_request']); // cek session
 });
 
 // admin management

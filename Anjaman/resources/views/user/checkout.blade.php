@@ -3,11 +3,20 @@
 $totalItem = 0;
 $totalWeight = 0;
 $totalPrice = 0;
+$ShipCost = 0;
 if (count($products) != 0) {
     foreach ($products as $product) {
         $totalItem += $product['quantity'];
         $totalPrice += $product['quantity'] * $product['price'];
     }
+}
+$ShipCost = $ShipCost;
+if ( $ShipCost == '20000' ){
+    $totalPrice += 20000;
+} elseif ( $ShipCost == '12000' ){
+    $totalPrice += 12000;
+} elseif ( $ShipCost == '12000' ){
+    $totalPrice += 8000;
 }
 @endphp
 
@@ -33,9 +42,9 @@ Anjaman | Details
                                     <div class="card-header">Instant</div>
                                     <div class="card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <input class="form-check-input" type="radio" name="ShipCost" value="20000" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                Rp. 12000
+                                                Rp. 20000
                                             </label>
                                         </div>
                                     </div>
@@ -46,7 +55,7 @@ Anjaman | Details
                                     <div class="card-header">Same Day</div>
                                     <div class="card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <input class="form-check-input" type="radio" name="ShipCost" value="12000" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Rp. 12000
                                             </label>
@@ -55,13 +64,13 @@ Anjaman | Details
                                 </div>
                             </div>
                             <div class="col-sm-3">
-                                <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
                                     <div class="card-header">Reguler</div>
                                     <div class="card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <input class="form-check-input" type="radio" name="ShipCost" value="8000" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                Rp. 12000
+                                                Rp. 8000
                                             </label>
                                         </div>
                                     </div>
@@ -74,15 +83,17 @@ Anjaman | Details
                         <h6>2. Address Information</h6>
                         <div class="card">
                             <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Bang Christopher Chan</h6>
-                                <p class="card-text">Jl. Laksda Adi Sucipto Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, nam,
-                                Jombang, Jombang, Jawa Timur, Indonesia
+                            <h6 class="card-subtitle mb-2 text-muted">{{ $addresses->fullname }}</h6>
+                                <p class="card-text">{{ $addresses->address . ', '
+                                    . $addresses->subdistrict . ', '
+                                    . $addresses->city . ', '
+                                    . $addresses->province}}
                                 <br>
-                                1234
+                                {{ $addresses->postal_code }}
                                 <br>
-                                083134591219
+                                {{ $addresses->phone_number }}
                                 </p>
-                            <a href="#" class="card-link">Edit Email</a>
+                            <a href="/user/editaddress/{{ $addresses->id }}" class="card-link">Edit Address</a>
                             </div>
                         </div>
                     </div>
@@ -103,7 +114,7 @@ Anjaman | Details
                                 <p class="card-text col-md-6 mb-3">Items</p>
                                 <p class="card-text-sub col-md-6 mb-3" style="text-align: right;">{{ $totalItem }}</p>
                                 <p class="card-text col-md-6 mb-3">Total Item</p>
-                                <p class="card-text-sub col-md-6 mb-3" style="text-align: right;">Rp. {{ $totalPrice }}</p>
+                                <p class="card-text-sub col-md-6 mb-3" style="text-align: right;">Rp. {{ $totalPrice + $ShipCost }}</p>
                             </div>
                             <div class="card-footer bg-transparent border-black">
                             @foreach ($products as $product)
@@ -123,10 +134,16 @@ Anjaman | Details
                                     </div>
                                 </div>
                                 <input type="hidden"
-                                    name="orders[order_details][{{ $j }}][product_id]"
+                                    name="orders[{{ $j }}][address_id]"
+                                    value="{{ $addresses->id }}">
+                                <input type="hidden"
+                                    name="orders[{{ $j }}][username]"
+                                    value="{{ auth()->user()->username }}">
+                                <input type="hidden"
+                                    name="orders[{{ $j }}][order_details][{{ $j }}][product_id]"
                                     value="{{ $product['id'] }}">
                                 <input type="hidden"
-                                    name="orders[order_details][{{ $j }}][quantity]"
+                                    name="orders[{{ $j }}][order_details][{{ $j }}][quantity]"
                                     value="{{ $product['quantity'] }}">
                                 @php
                                     $j = $j + 1;
@@ -140,7 +157,7 @@ Anjaman | Details
                 </div>
             </div>
             <div class="button-purchase">
-                <a href="#" class="btn btn-dark card-text col-md-2 mb-12">Confirm Purchase</a>
+                <button type="submit" class="btn btn-dark card-text col-md-2 mb-12" role="button">Confirm Purchase</button>
                 <a href="#" class="btn btn-light card-text col-md-2 mb-12" style="border-style: solid; border-width: 2px; border-color: black;">Back to Cart</a>
             </div>
         </div>
