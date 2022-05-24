@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Address;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -56,7 +57,15 @@ class AdminController extends Controller
         $detail = OrderDetail::getOrderDetailById($id);
 
         return view('/admin/detailtransaksi', [
-            'detail' => $detail
+            'detail' => $detail,
         ]);
+    }
+
+    public function destroy_order($id)
+    {
+        $order = Order::find($id);
+        $order->delete();
+
+        return redirect('/admin/transaksi');
     }
 }

@@ -57,7 +57,9 @@ class UserController extends Controller
         User::create($validatedUserData);
         DB::table('addresses')->insert($validatedAddressData);
 
-        return redirect('/user/login');
+        return view('/user/login', [
+            'title' => 'User | Login'
+        ]);
     }
 
     public function login() {

@@ -15,10 +15,14 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('status')->default('dikemas');
+            $table->string('status')->default('Dikemas');
+            $table->integer('in_cancel_request')->default('0');
             $table->char('username');
+            $table->string('shipper')->nullable();
             $table->integer('address_id');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+            
         });
     }
 

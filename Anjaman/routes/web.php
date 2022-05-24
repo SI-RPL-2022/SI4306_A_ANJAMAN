@@ -76,4 +76,6 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin/detailtransaksi/{id}', [AdminController::class, 'detail']);
     Route::get('/admin/editstatus/{id}', [AdminController::class, 'transaksi_edit']);
     Route::post('/admin/updatestatus/{id}', [AdminController::class, 'transaksi_update']);
+    Route::delete('/admin/deleteorder/{id}',  [AdminController::class, 'destroy_order']);
+
 });

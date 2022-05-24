@@ -30,27 +30,31 @@ Anjaman | Transaksi
                                 </tr>  
                                 <tr>
                                     <th>Customer</th>
-                                    <td>Bangchan</td>
-                                </tr> 
+                                    <td>xxx</td>
+                                </tr>
+                                <tr>
+                                    <th>Pengiriman</th>
+                                    <td>xxx</td>
+                                </tr>  
                                 <tr>
                                     <th>Product</th>
-                                    <td>Tas Wanita Anyaman</td>
+                                    <td>xxx</td>
                                 </tr> 
                                 <tr>
                                     <th>Quantity</th>
-                                    <td>2 pcs</td>
+                                    <td>xxx</td>
                                 </tr> 
                                 <tr>
                                     <th>Alamat</th>
-                                    <td>Bojongswan</td>
+                                    <td>xxx</td>
                                 </tr>
                                 <tr>
                                     <th>Total Harga</th>
-                                    <td>20000</td>
+                                    <td>xxx</td>
                                 </tr>
                                 <tr>
                                     <th>Status</th>
-                                    <td>Selesai</td>
+                                    <td>xxx</td>
                                 </tr>
                             </table>
                         </div>    

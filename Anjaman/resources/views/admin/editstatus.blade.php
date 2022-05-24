@@ -26,9 +26,12 @@ Anjaman | Transaksi
                                     @csrf
                                     <div class="form-group">
                                     <label for="role" class="form-label">Role</label>
-                                    <input type="text" class="form-control"
-                                        id="status" name="status" autofocus
-                                        value="{{ old('status', $order->status) }}">
+                                    <select name="status" value="{{ old('status', $order->status) }}" class="form-control">
+                                        <option value="Dikemas">Dikemas</option>
+                                        <option value="Dikirim">Dikirim</option>
+                                        <option value="Selesai">Selesai</option>
+                                    </select>
+                                    
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-block">
                                         Ubah
