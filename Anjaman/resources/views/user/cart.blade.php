@@ -47,72 +47,77 @@ Anjaman | Profile
                 </tbody>
               @endif
 
-              {{-- products --}}
-              @for ($j = 0; $j < count($products); $j++)
-                @php
-                $product = $products[$j];
-                $total = $product->price;
-                @endphp
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <div class="container-product">
-                        <img src="{{ asset('images/' . $product->image) }}" class="mg-fluid rounded" alt="{{ $product->image }}">
-                        <div>
-                          <h6>{{ $product->name }}</h6>
-                          <p>Remaining: {{ $product->stock }}</p>
+              {{-- suppliers --}}
+              @for ($i = 0; $i < 1; $i++)
+                @php $supplier = $suppliers[$i]; @endphp
+                
+                {{-- products --}}
+                @for ($j = 0; $j < count($products); $j++)
+                  @php
+                    $product = $products[$j];
+                    $total = $product->price;
+                  @endphp
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <div class="container-product">
+                          <img src="{{ asset('images/' . $product->image) }}" class="mg-fluid rounded" alt="{{ $product->image }}">
+                          <div>
+                            <h6>{{ $product->name }}</h6>
+                            <p>Remaining: {{ $product->stock }}</p>
+                          </div>
                         </div>
-                      </div>
-                    </th>
-                    
-                    <!-- Product Price -->
-                    <td>
-                      Rp. <span class='product-price'>{{ $product->price }}
-                        <input type="hidden" class='product-price2' value='{{ $product->price }}'>
-                    </span>
-                    </td>
-                    <!-- End of Product Price -->
+                      </th>
+                      
+                      <!-- Product Price -->
+                      <td>
+                        Rp. <span class='product-price'>{{ $product->price }}
+                          <input type="hidden" class='product-price2' value='{{ $product->price }}'>
+                      </span>
+                      </td>
+                      <!-- End of Product Price -->
 
-                    <!-- Quantity -->
-                    <td>
-                      <div class="quantity-wrapper">
-                        <label
-                            for="quantity-{{ $j }}"></label>
-                        <input type="number"
-                            name="products[{{ $j }}][quantity]"
-                            id="quantity-{{ $j }}"
-                            class="product-quantity" onchange="SubTotal()" value="1" min="1" max="{{ $product->stock }}">
-                      </div>
-                    </td>
-                    <!-- End of Quantity -->
-                    <td>
-                      Rp. <span class="summary-total">{{$total}}</span>
-                    </td>
-                    <input type="hidden"
-                      name="products[{{ $j }}][image]"
-                      value="{{ $product->image }}">
-                    <input type="hidden"
-                      name="products[{{ $j }}][id]"
-                      value="{{ $product->id }}">
-                    <input type="hidden"
-                      name="products[{{ $j }}][name]"
-                      value="{{ $product->name }}">
-                    <input type="hidden"
-                      name="products[{{ $j }}][price]"
-                      value="{{ $product->price }}">
-                    <input type="hidden"
-                      name="products[{{ $j }}][stock]"
-                      value="{{ $product->stock }}">
+                      <!-- Quantity -->
+                      <td>
+                        <div class="quantity-wrapper">
+                          <label
+                              for="quantity-{{ $j }}"></label>
+                          <input type="number"
+                              name="suppliers[{{ $i }}][products][{{ $j }}][quantity]"
+                              id="quantity-{{ $j }}"
+                              class="product-quantity" onchange="SubTotal()" value="1" min="1" max="{{ $product->stock }}">
+                        </div>
+                      </td>
+                      <!-- End of Quantity -->
+                      <td>
+                        Rp. <span class="summary-total">{{$total}}</span>
+                      </td>
+                      <input type="hidden"
+                        name="suppliers[{{ $i }}][products][{{ $j }}][image]"
+                        value="{{ $product->image }}">
+                      <input type="hidden"
+                        name="suppliers[{{ $i }}][products][{{ $j }}][id]"
+                        value="{{ $product->id }}">
+                      <input type="hidden"
+                        name="suppliers[{{ $i }}][products][{{ $j }}][name]"
+                        value="{{ $product->name }}">
+                      <input type="hidden"
+                        name="suppliers[{{ $i }}][products][{{ $j }}][price]"
+                        value="{{ $product->price }}">
+                      <input type="hidden"
+                        name="suppliers[{{ $i }}][products][{{ $j }}][stock]"
+                        value="{{ $product->stock }}">
 
-                    <td>
-                      <div class="col-1">
-                        <a href="/cart/destroy/{{ $product->cart_id }}" class="delete-cart-item__btn" style="color: black;">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
+                      <td>
+                        <div class="col-1">
+                          <a href="/cart/destroy/{{ $product->cart_id }}" class="delete-cart-item__btn" style="color: black;">
+                            <i class="fa fa-trash"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                @endfor
               @endfor
             </table>
           </div>

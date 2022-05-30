@@ -30,6 +30,7 @@ class CartController extends Controller
     public function show() {
         return view('user/cart', [
             'user' => User::getUserByUsername(auth()->user()->username),
+            'suppliers' => "Anjaman",
             'products' => Cart::getProductsOnCartByUsername(auth()->user()->username),
             'title' => 'Home | Cart'
         ]);
@@ -56,10 +57,10 @@ class CartController extends Controller
         ]);
 
         // retrieving form request data
-        $products = $request->input('products');
+        $suppliers = $request->input('suppliers');
 
         return view('user/checkout', [
-            'products' => $products,
+            'suppliers' => $suppliers,
             'addresses' => Address::getAddressesByUsername(auth()->user()->username),
             'active_address' => Address::getDefaultAddress(auth()->user()->username)->id,
             'title' => 'Cart | Checkout'

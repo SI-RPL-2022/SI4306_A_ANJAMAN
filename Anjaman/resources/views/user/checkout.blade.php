@@ -4,10 +4,12 @@ $totalItem = 0;
 $totalWeight = 0;
 $totalPrice = 0;
 $ShipCost = 0;
-if (count($products) != 0) {
-    foreach ($products as $product) {
-        $totalItem += $product['quantity'];
-        $totalPrice += $product['quantity'] * $product['price'];
+if (count($suppliers) != 0) {
+    foreach ($suppliers as $supplier) {
+        foreach ($supplier['products'] as $product) {
+            $totalItem += $product['quantity'];
+            $totalPrice += $product['quantity'] * $product['price'];
+        }
     }
 }
 $ShipCost = $ShipCost;
@@ -33,6 +35,7 @@ Anjaman | Details
             <h5 style="margin-top: 20px;">Checkout</h5>
             <div class="row" style="margin-top: 40px;">
                 <!-- Section Left -->
+                @php $i = 0; @endphp
                 <div class="col-md-8">
                     <div class="shipment-method">
                         <h6>1. Choose Your Shipping Method</h6>
@@ -42,7 +45,7 @@ Anjaman | Details
                                     <div class="card-header">Instant</div>
                                     <div class="card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ShipCost" value="20000" id="flexRadioDefault1">
+                                            <input class="form-check-input" type="radio" name="orders[{{ $i }}][shipper]" value="20000" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Rp. 20000
                                             </label>
@@ -55,7 +58,7 @@ Anjaman | Details
                                     <div class="card-header">Same Day</div>
                                     <div class="card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ShipCost" value="12000" id="flexRadioDefault1">
+                                            <input class="form-check-input" type="radio" name="orders[{{ $i }}][shipper]" value="12000" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Rp. 12000
                                             </label>
@@ -68,7 +71,7 @@ Anjaman | Details
                                     <div class="card-header">Reguler</div>
                                     <div class="card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ShipCost" value="8000" id="flexRadioDefault1">
+                                            <input class="form-check-input" type="radio" name="orders[{{ $i }}][shipper]" value="8000" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Rp. 8000
                                             </label>
@@ -114,10 +117,10 @@ Anjaman | Details
                                 <p class="card-text col-md-6 mb-3">Items</p>
                                 <p class="card-text-sub col-md-6 mb-3" style="text-align: right;">{{ $totalItem }}</p>
                                 <p class="card-text col-md-6 mb-3">Total Item</p>
-                                <p class="card-text-sub col-md-6 mb-3" style="text-align: right;">Rp. {{ $totalPrice + $ShipCost }}</p>
+                                <p class="card-text-sub col-md-6 mb-3" style="text-align: right;">Rp. {{ $totalPrice }}</p>
                             </div>
                             <div class="card-footer bg-transparent border-black">
-                            @foreach ($products as $product)
+                            @foreach ($supplier['products'] as $product)
                                 <div class="card-product">
                                     <div class="kiri">
                                         <img src="{{ asset('images/' . $product['image']) }}" alt="">
@@ -134,16 +137,16 @@ Anjaman | Details
                                     </div>
                                 </div>
                                 <input type="hidden"
-                                    name="orders[{{ $j }}][address_id]"
+                                    name="orders[{{ $i }}][address_id]"
                                     value="{{ $addresses->id }}">
                                 <input type="hidden"
-                                    name="orders[{{ $j }}][username]"
+                                    name="orders[{{ $i }}][username]"
                                     value="{{ auth()->user()->username }}">
                                 <input type="hidden"
-                                    name="orders[{{ $j }}][order_details][{{ $j }}][product_id]"
+                                    name="orders[{{ $i }}][order_details][{{ $j }}][product_id]"
                                     value="{{ $product['id'] }}">
                                 <input type="hidden"
-                                    name="orders[{{ $j }}][order_details][{{ $j }}][quantity]"
+                                    name="orders[{{ $i }}][order_details][{{ $j }}][quantity]"
                                     value="{{ $product['quantity'] }}">
                                 @php
                                     $j = $j + 1;
