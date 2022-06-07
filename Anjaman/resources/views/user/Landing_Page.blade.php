@@ -164,11 +164,11 @@ Anjaman | Home
             <div class="col-sm-6 col-md-6 col-lg-4">
               <div class="card card-testimonial text-center">
                 <div class="testimonial-content">
-                  <img src="images/Ellipse 1.png" alt="" class="mb-4 rounded-circle"
+                  <img src="images/Ellipse 3.png" alt="" class="mb-4 rounded-circle"
                     style="width: 150px; height: 150px;" />
-                  <h3 class="mb-4">Eric Nam</h3>
+                  <h3 class="mb-4">Alfa Safira</h3>
                   <p class="testimonials">
-                    “ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's “
+                    “ Anjaman memudahkan saya untuk menemukan penjual kerajinan anyaman yang saya inginkan dengan mudah “
                   </p>
                 </div>
                 <hr />
@@ -184,11 +184,11 @@ Anjaman | Home
             <div class="col-sm-6 col-md-6 col-lg-4">
               <div class="card card-testimonial text-center">
                 <div class="testimonial-content">
-                  <img src="images/Ellipse 1.png" alt="" class="mb-4 rounded-circle"
+                  <img src="images/Ellipse 4.png" alt="" class="mb-4 rounded-circle"
                     style="width: 150px; height: 150px;" />
-                  <h3 class="mb-4">Eric Nam</h3>
+                  <h3 class="mb-4">Sarah</h3>
                   <p class="testimonials">
-                    “ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's “
+                    “ Anyaman yang ada dipulau Sumatera dapat ditemukan dengan mudah, ini juga sangat membantu produk mereka agar ;ebih dikenal masyarakat “
                   </p>
                 </div>
                 <hr />
@@ -204,11 +204,11 @@ Anjaman | Home
             <div class="col-sm-6 col-md-6 col-lg-4">
               <div class="card card-testimonial text-center">
                 <div class="testimonial-content mb-auto">
-                  <img src="images/Ellipse 1.png" alt="" class="mb-4 rounded-circle"
+                  <img src="images/Ellipse 2.png" alt="" class="mb-4 rounded-circle"
                     style="width: 150px; height: 150px;" />
-                  <h3 class="mb-4">Eric Nam</h3>
+                  <h3 class="mb-4">Virda Amelia</h3>
                   <p class="testimonials">
-                    “ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's “
+                    “ Dengan Anjaman membantu semua UMKM yang ada. Kini saya dapat menjual kerajinan yang saya buat dengan lebih efisien “
                   </p>
                 </div>
                 <hr />
