@@ -42,20 +42,26 @@ Anjaman | Transaksi
                                             <td>{{ $item->username }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->status }}</td>
-                                            <td>
-                                                <a href="/admin/detailtransaksi/{{ $item->id }}" class="btn btn-primary">
-                                                    <i class="fa fa-eye"></i>
-                                                </a>
-                                                <a href="/admin/editstatus/{{ $item->id }}" class="btn btn-info">
-                                                    <i class="fa fa-pencil-alt"></i>
-                                                </a>
-                                                <form action="/admin/deleteorder/{{$item->id}}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" href="/admin/deleteorder/{{$item->id}} " class="btn btn-danger">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
-                                                </form>
+                                            <td style="display: flex; gap: 8px;">
+                                                <div class="detail">
+                                                    <a href="/admin/detailtransaksi/{{ $item->id }}" class="btn btn-primary">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="edit">
+                                                    <a href="/admin/editstatus/{{ $item->id }}" class="btn btn-info">
+                                                        <i class="fa fa-pencil-alt"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="hapus">
+                                                    <form action="/admin/deleteorder/{{$item->id}}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" href="/admin/deleteorder/{{$item->id}} " class="btn btn-danger">
+                                                            <i class="fa fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach

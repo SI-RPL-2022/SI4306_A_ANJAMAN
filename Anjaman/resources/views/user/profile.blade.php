@@ -96,22 +96,44 @@ Anjaman | Profile
                                                 <th>Invoice No.</th>
                                                 <th>Ship To</th>
                                                 <th>Date/Time</th>
+                                                <th>Status</th>
                                                 <th>Product</th>
                                                 <th>Quantity</th>
                                                 <th>Total Price</th>
-                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach ($orders as $order)
                                             <tr>
-                                                <td>sprint2</td>
-                                                <td>sprint2</td>
-                                                <td>sprint2</td>
-                                                <td>sprint2</td>
-                                                <td>sprint2</td>
-                                                <td>sprint2</td>
-                                                <td>sprint2</td>
+                                                <td>{{$order->id}}</td>
+                                                <td>{{$order->username}}</td>
+                                                <td>{{$order->created_at}}</td>
+                                                <td>{{$order->status}}</td>
+                                        
+                                                <td> 
+                                                    @foreach ($order_details as $order_detail) 
+                                                        @if ($order_detail->order_id == $order->id)
+                                                            {{ $order_detail->name }}<br> 
+                                                        @endif 
+                                                    @endforeach
+                                                </td>
+                                                <td> 
+                                                    @foreach ($order_details as $order_detail) 
+                                                        @if ($order_detail->order_id == $order->id)
+                                                            x {{ $order_detail->quantity }}<br> 
+                                                        @endif 
+                                                    @endforeach
+                                                </td>
+                                                @php
+                                                $subtotal = 0;
+                                                    foreach ($order_details as $order_detail) {
+                                                        if ($order_detail->order_id == $order->id)
+                                                            $subtotal += $order_detail->quantity * $order_detail->price ;
+                                                    }
+                                                @endphp
+                                                <td> {{$subtotal + $order->shipper}} </td>
                                             </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

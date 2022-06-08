@@ -21,7 +21,7 @@ class OrderDetail extends Model
         $order_details = DB::table('order_details as od')
             ->join('products as p', 'od.product_id', '=', 'p.id')
             ->join('orders as o', 'od.order_id', '=', 'o.id')
-            ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.weight', 'o.supplier', 'o.status')
+            ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'o.status')
             ->where('o.username', $username)
             ->where('o.status', null);
 
@@ -32,7 +32,7 @@ class OrderDetail extends Model
                     $order_details = DB::table('order_details as od')
                     ->join('products as p', 'od.product_id', '=', 'p.id')
                     ->join('orders as o', 'od.order_id', '=', 'o.id')
-                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.weight', 'o.supplier', 'o.status')
+                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'o.status')
                     ->where('o.username', $username)
                     ->where('o.status', $stat)
                     ->where('o.in_cancel_request', 2)
@@ -44,7 +44,7 @@ class OrderDetail extends Model
                 $order_details = DB::table('order_details as od')
                     ->join('products as p', 'od.product_id', '=', 'p.id')
                     ->join('orders as o', 'od.order_id', '=', 'o.id')
-                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.weight', 'o.supplier', 'o.status')
+                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'o.status')
                     ->where('o.username', $username)
                     ->where('o.status', $status)
                     ->union($order_details); 

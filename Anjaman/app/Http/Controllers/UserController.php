@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Address;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -96,9 +98,13 @@ class UserController extends Controller
     }
 
     public function profile() {
+        $orders = Order::getOrdersByUsernameAndStatus(auth()->user()->username, ['dikemas', 'dikirim', 'selesai']);
+        $orderDetails = OrderDetail::getOrderDetailsByUsernameAndStatus(auth()->user()->username,  ['dikemas', 'dikirim', 'selesai']);
         return view('user/profile', [
             'user' => User::getUserByUsername(auth()->user()->username),
             'addresses' => Address::getAddressesByUsername(auth()->user()->username),
+            'orders' => $orders,
+            'order_details' => $orderDetails,
             'title' => 'Home | Profile'
         ]);
     }
