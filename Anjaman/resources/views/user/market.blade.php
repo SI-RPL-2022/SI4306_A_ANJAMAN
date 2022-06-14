@@ -53,7 +53,7 @@ Anjaman | Market
         @if(count(array($products)) > 0)
             @foreach ($products as $product)
             <div class="card mr-4 mb-4 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
-                <img style="width:100%" src="{{ asset('images/' . $product->image) }}" class="card-img-top" alt="">
+                <img style="width:100%" src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="">
                 <div class="card-body">
                     <a href="/user/details/{{ $product->id }}" style="text-decoration: none; color: black;">
                         <h5 class="card-text text-center font-weight-bold">{{ $product->name }}</h5>

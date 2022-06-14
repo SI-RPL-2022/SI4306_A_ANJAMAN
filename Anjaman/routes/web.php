@@ -78,4 +78,11 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::post('/admin/updatestatus/{id}', [AdminController::class, 'transaksi_update']);
     Route::delete('/admin/deleteorder/{id}',  [AdminController::class, 'destroy_order']);
 
+    Route::get('/admin/manage_market', [AdminController::class, 'managemarket_show']);
+    Route::get('/admin/createmanagemarket', [AdminController::class, 'managemarket_create']);
+    Route::post('/admin/createmanagemarket', [AdminController::class, 'managemarket_store']);
+    Route::get('/admin/editmanagemarket/{id}', [AdminController::class, 'managemarket_edit']);
+    Route::post('/admin/updatemanagemarket/{id}', [AdminController::class, 'managemarket_update']);
+    Route::delete('/admin/deletemanagemarket/{id}',  [AdminController::class, 'managemarket_destroy']);
+
 });

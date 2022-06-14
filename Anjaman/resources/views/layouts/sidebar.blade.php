@@ -17,13 +17,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Transaksi.html" class="nav-link active">
+                    <a href="/admin/transaksi" class="nav-link active">
                         <i class="fas fa-fw fa-money-bill-alt"></i>
                         <span class="mx-2">Transaction</span></a>
                     </a>
                 </li>
                 <li>
-                    <a href="Manage Market.html" class="nav-link text-white">
+                    <a href="/admin/manage_market" class="nav-link text-white">
                         <i class="fas fa-fw fa-shopping-bag"></i>
                         <span class="mx-2">Manage Market</span></a>
                     </a>

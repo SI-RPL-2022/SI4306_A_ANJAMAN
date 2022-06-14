@@ -11,21 +11,21 @@ Anjaman | Details
                 <div class="col-7">
               
                     <div class="main-img">
-                        <img src="{{ asset('images/' . $product->image) }}" class="img-fluid w-100 pb-1" id="MainImg" alt="">
+                        <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid w-100 pb-1" id="MainImg" alt="">
                     </div>
 
                     <div class="small-img-group">
                         <div class="small-img-col">
-                            <img src="{{ asset('images/' . $product->image) }}" width="100%" class="small-img" alt="">
+                            <img src="{{ asset('storage/' . $product->image) }}" width="100%" class="small-img" alt="">
                         </div>
                         <div class="small-img-col">
-                            <img src="{{ asset('images/' . $product->image) }}" width="100%" class="small-img" alt="">
+                            <img src="{{ asset('storage/' . $product->image) }}" width="100%" class="small-img" alt="">
                         </div>
                         <div class="small-img-col">
-                            <img src="{{ asset('images/' . $product->image) }}" width="100%" class="small-img" alt="">
+                            <img src="{{ asset('storage/' . $product->image) }}" width="100%" class="small-img" alt="">
                         </div>
                         <div class="small-img-col">
-                            <img src="{{ asset('images/' . $product->image) }}" width="100%" class="small-img" alt="">
+                            <img src="{{ asset('storage/' . $product->image) }}" width="100%" class="small-img" alt="">
                         </div>
                     </div>
                 </div>

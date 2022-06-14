@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\DB;
 class Product extends Model
 {
     use HasFactory;
+    
+
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'stock',
+        'category',
+        'image',
+        'images'
+    ];
+
+    protected $table = 'products';
 
     protected $guarded = [
         'id'
