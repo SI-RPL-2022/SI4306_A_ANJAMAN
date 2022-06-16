@@ -61,7 +61,7 @@ Anjaman | Profile
                     <tr>
                       <th scope="row">
                         <div class="container-product">
-                          <img src="{{ asset('images/' . $product->image) }}" class="mg-fluid rounded" alt="{{ $product->image }}">
+                          <img src="{{ asset('storage/' . $product->image) }}" class="mg-fluid rounded" alt="{{ $product->image }}">
                           <div>
                             <h6>{{ $product->name }}</h6>
                             <p>Remaining: {{ $product->stock }}</p>

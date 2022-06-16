@@ -123,7 +123,7 @@ Anjaman | Details
                             @foreach ($supplier['products'] as $product)
                                 <div class="card-product">
                                     <div class="kiri">
-                                        <img src="{{ asset('images/' . $product['image']) }}" alt="">
+                                        <img src="{{ asset('storage/' . $product['image']) }}" alt="">
                                     </div>
                                     <div class="kanan" style="width: 90%;">
                                         <h6 class="title-product">

@@ -49,7 +49,11 @@ Anjaman | Transaksi
                                 </div>
                                 <div class="form-group">
                                     <label for="images">Image Gallery</label>
-                                    <input type="file" class="form-control" name="images" id="images" placeholder="images" class="form-control" multiple>
+                                    <input type="file" class="form-control" name="image1" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="images">Image Gallery</label>
+                                    <input type="file" class="form-control" name="image2" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Market Name</label>

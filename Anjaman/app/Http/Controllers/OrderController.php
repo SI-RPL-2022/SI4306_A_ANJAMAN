@@ -33,7 +33,8 @@ class OrderController extends Controller
             // menghapus seluruh data shopping cart
             DB::table('carts')->where('username', auth()->user()->username)->delete();
         }
-        return redirect('/user/market');
+        return redirect('/user/market')
+            ->with('success_checkout','Checkout Success, Thank You for your order. Track your order');
     }
 
     public function show(String $status) {

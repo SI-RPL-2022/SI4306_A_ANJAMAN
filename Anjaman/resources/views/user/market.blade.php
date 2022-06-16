@@ -5,6 +5,7 @@ Anjaman | Market
 @endsection
 
 @section('content')
+    @include('layouts.flash-message')
     <h1 class="h3 mb-0 text-black-800" style="font-weight: bold; padding-top: 30px;  margin-left: 70px;">Market</h1>
 
     <!-- Search -->

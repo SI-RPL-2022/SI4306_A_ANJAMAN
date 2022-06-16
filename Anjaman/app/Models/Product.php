@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Models\Gallery;
 
 class Product extends Model
 {
@@ -17,9 +18,12 @@ class Product extends Model
         'price',
         'stock',
         'category',
-        'image',
-        'images'
+        'image'
     ];
+
+    public function galleries(){
+        return $this->hasMany(Gallery::class);
+    }
 
     protected $table = 'products';
 

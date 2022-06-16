@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Address;
 use App\Models\Product;
+use App\Models\Gallery;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -101,34 +102,86 @@ class AdminController extends Controller
 
     public function managemarket_store(Request $request) {
 
-        $image = time().'.'.$request->image->extension();
-        $request->image->move(public_path('images'), $image);
+        if($request->hasFile("image")){
+            $file=$request->file("image");
+            $imageName=time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("storage/images"), $imageName);
 
-        $product = new Product;
-
-        $product->name = $request['name'];
-        $product->description = $request['description'];
-        $product->price = $request['price'];
-        $product->stock = $request['stock'];
-        $product->category = $request['category'];
-
-        $product->image = $image;
-
-        if($request->images)
-        {
-            $imagesname = '';
-            foreach($request->images as $key=>$image)
-            {
-                $images = time(). $key. '.'.$image->extension();
-                $request->images->move(public_path('images'), $images);
-                $imagesname = $imagesname . ',' . $images;
-            }
-            $product->images = $imagesname;
+            $product = new Product([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'stock' => $request->stock,
+                'category' => $request->category,
+                'image' => $imageName
+            ]);
+            $product->save();
         }
 
-        $product->save();
+        // if($request->hasFile("images")){
+        //     $files=$request->file("images");
+        //     foreach($files as $file){
+        //         $imageName= time().'_'.$file->getClientOriginalName();
+        //         $request['product_id']=$product->id;
+        //         $request['images']=$imageName;
+        //         $file->move(public_path("storage/images"), $imageName);
+        //         Gallery::create(['product_id' => $product->id]);
+        //         Gallery::create(['images' => $imageName]);
+        //     }
+        // }
 
-        return redirect('/admin/manage_market');
+        if($request->hasFile("image1")){
+            $file=$request->file("image1");
+            $imageName1=time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("storage/images"), $imageName1);
+            
+            $request['product_id']=$product->id;
+            $request['images']=$imageName1;
+            Gallery::create($request->all());
+        }
+
+        if($request->hasFile("image2")){
+            $file=$request->file("image2");
+            $imageName2=time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("storage/images"), $imageName2);
+            
+            $request['product_id']=$product->id;
+            $request['images']=$imageName2;
+            Gallery::create($request->all());
+        }
+
+        return redirect('/admin/manage_market')
+            ->with('success','New product has been created!');
+
+        // $image = 'images/'. time().'.'.$request->image->extension();
+        // $request->image->move(public_path('storage/images'), $image);
+
+        // $product = new Product;
+
+        // $product->name = $request['name'];
+        // $product->description = $request['description'];
+        // $product->price = $request['price'];
+        // $product->stock = $request['stock'];
+        // $product->category = $request['category'];
+
+        // $product->image = $image;
+
+        // if($request->images)
+        // {
+        //     $imagesname = '';
+        //     foreach($request->images as $key=>$image)
+        //     {
+        //         $images = time(). $key. '.'.$image->extension();
+        //         $request->images->move(public_path('images'), $images);
+        //         $imagesname = $imagesname . ',' . $images;
+        //     }
+        //     $product->images = $imagesname;
+        // }
+
+        // $product->save();
+
+        // return redirect('/admin/manage_market')
+        //     ->with('success','New product has been created!');
     }
 
     public function managemarket_update(Request $request, $id)
