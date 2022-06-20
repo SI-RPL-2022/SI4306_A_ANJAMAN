@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Gallery;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\Cast\String_;
 
@@ -60,6 +61,8 @@ class MarketController extends Controller
     public function product(int $id) {
         return view('user/details', [
             'product' => Product::getProductById($id),
+            'products' => Product::getProducts(),
+            'galleries' => Gallery::getgalleries(),
             'title' => 'Home | Market'
         ]);
     }

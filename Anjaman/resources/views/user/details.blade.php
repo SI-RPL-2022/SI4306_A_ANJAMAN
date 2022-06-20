@@ -11,22 +11,20 @@ Anjaman | Details
                 <div class="col-7">
               
                     <div class="main-img">
-                        <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid w-100 pb-1" id="MainImg" alt="">
+                        <img src="{{ asset('storage/images/' . $product->image) }}" class="img-fluid w-100 pb-1" id="MainImg" alt="">
                     </div>
 
                     <div class="small-img-group">
                         <div class="small-img-col">
-                            <img src="{{ asset('storage/' . $product->image) }}" width="100%" class="small-img" alt="">
+                            <img src="{{ asset('storage/images/' . $product->image) }}" width="100%" class="small-img" alt="">
                         </div>
-                        <div class="small-img-col">
-                            <img src="{{ asset('storage/' . $product->image) }}" width="100%" class="small-img" alt="">
-                        </div>
-                        <div class="small-img-col">
-                            <img src="{{ asset('storage/' . $product->image) }}" width="100%" class="small-img" alt="">
-                        </div>
-                        <div class="small-img-col">
-                            <img src="{{ asset('storage/' . $product->image) }}" width="100%" class="small-img" alt="">
-                        </div>
+                    @foreach ($galleries as $gallery) 
+                        @if ($gallery->product_id == $product->id)
+                            <div class="small-img-col">
+                                <img src="{{ asset('storage/images/' . $gallery->images) }}" width="100%" class="small-img" alt="">
+                            </div>
+                        @endif 
+                    @endforeach
                     </div>
                 </div>
                 <div class="col-5">
@@ -69,26 +67,44 @@ Anjaman | Details
             </div>
         </div>
     </section>
+
+    <section class="row justify-content-center mt-4">
+        @foreach ($products as $product)
+        <div class="card mr-4 mb-4 shadow p-2 mb-5 bg-white" style="width: 16rem; border-radius: 12px;">
+            <img style="width:100%" src="{{ asset('storage/images/' . $product->image) }}" class="card-img-top" alt="">
+            <div class="card-body">
+                <a href="/user/details/{{ $product->id }}" style="text-decoration: none; color: black;">
+                    <h5 class="card-text text-center font-weight-bold" style="font-size: 16px; height: 40px;">{{ $product->name }}</h5>
+                </a>
+                <p class="text-center" style="font-size: 16px; margin-top: 4px;">Rp. {{ $product->price }}</p>
+                <div class="card-body row justify-content-center">
+                    <a href="/cart/store/{{ $product->id }}" class="btn btn-dark col-md-8 text-light" style="border: none; font-size: 12px; font-weight: 600;">
+                    Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </section>
+
+    <script>
+        var MainImg = document.getElementById('MainImg');
+        var smallImg = document.getElementsByClassName('small-img');
+        
+        smallImg[0].onclick = function(){
+        MainImg.src = smallImg[0].src;
+        }
+
+        smallImg[1].onclick = function(){
+        MainImg.src = smallImg[1].src;
+        }
+
+        smallImg[2].onclick = function(){
+        MainImg.src = smallImg[2].src;
+        }
+
+        smallImg[3].onclick = function(){
+        MainImg.src = smallImg[3].src;
+        }
+    </script>
 @endsection
-
-<script>
-    var MainImg = document.getElementById('MainImg');
-    var smallImg = document.getElementsByClassName('small-img');
-    
-    smallImg[0].onclick = function(){
-    MainImg.src = smallImg[0].src;
-    }
-
-    smallImg[1].onclick = function(){
-    MainImg.src = smallImg[1].src;
-    }
-
-    smallImg[2].onclick = function(){
-    MainImg.src = smallImg[2].src;
-    }
-
-    smallImg[3].onclick = function(){
-    MainImg.src = smallImg[3].src;
-    }
-</script>
 

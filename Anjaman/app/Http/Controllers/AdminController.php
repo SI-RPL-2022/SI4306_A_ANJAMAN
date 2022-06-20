@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Gallery;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
@@ -71,10 +72,6 @@ class AdminController extends Controller
 
         return redirect('/admin/transaksi');
     }
-
-
-
-
     
     // Manage Market
 
@@ -88,9 +85,11 @@ class AdminController extends Controller
     public function managemarket_edit(int $id) {
 
         $product = Product::getProductById($id);
+        $galleries = Gallery::getGalleries();
 
         return view('/admin/editmanagemarket', [
             'product' => $product,
+            'galleries' => $galleries,
         ]);
     }
 
@@ -102,8 +101,8 @@ class AdminController extends Controller
 
     public function managemarket_store(Request $request) {
 
-        if($request->hasFile("image")){
-            $file=$request->file("image");
+        if($request->hasFile("image-cover")){
+            $file=$request->file("image-cover");
             $imageName=time().'_'.$file->getClientOriginalName();
             $file->move(public_path("storage/images"), $imageName);
 
@@ -117,18 +116,6 @@ class AdminController extends Controller
             ]);
             $product->save();
         }
-
-        // if($request->hasFile("images")){
-        //     $files=$request->file("images");
-        //     foreach($files as $file){
-        //         $imageName= time().'_'.$file->getClientOriginalName();
-        //         $request['product_id']=$product->id;
-        //         $request['images']=$imageName;
-        //         $file->move(public_path("storage/images"), $imageName);
-        //         Gallery::create(['product_id' => $product->id]);
-        //         Gallery::create(['images' => $imageName]);
-        //     }
-        // }
 
         if($request->hasFile("image1")){
             $file=$request->file("image1");
@@ -150,89 +137,162 @@ class AdminController extends Controller
             Gallery::create($request->all());
         }
 
+        if($request->hasFile("image3")){
+            $file=$request->file("image3");
+            $imageName3=time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("storage/images"), $imageName3);
+            
+            $request['product_id']=$product->id;
+            $request['images']=$imageName3;
+            Gallery::create($request->all());
+        }
+
         return redirect('/admin/manage_market')
             ->with('success','New product has been created!');
 
-        // $image = 'images/'. time().'.'.$request->image->extension();
-        // $request->image->move(public_path('storage/images'), $image);
-
-        // $product = new Product;
-
-        // $product->name = $request['name'];
-        // $product->description = $request['description'];
-        // $product->price = $request['price'];
-        // $product->stock = $request['stock'];
-        // $product->category = $request['category'];
-
-        // $product->image = $image;
-
-        // if($request->images)
-        // {
-        //     $imagesname = '';
-        //     foreach($request->images as $key=>$image)
-        //     {
-        //         $images = time(). $key. '.'.$image->extension();
-        //         $request->images->move(public_path('images'), $images);
-        //         $imagesname = $imagesname . ',' . $images;
-        //     }
-        //     $product->images = $imagesname;
-        // }
-
-        // $product->save();
-
-        // return redirect('/admin/manage_market')
-        //     ->with('success','New product has been created!');
     }
 
     public function managemarket_update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'stock' => 'required',
-            'category' => 'required'
-        ]);
-        
-        $product = Product::find($id);
-        if($request->hasFile('image')){
-            $request->validate([
-              'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            ]);
-            $path = $request->file('image')->store('images');
-            $product->image = $path;
+        $product=Product::findOrFail($id);
+
+        if($request->hasFile("image-cover")){
+            if (File::exists("storage/images/".$product->image)) {
+                File::delete("storage/images/".$product->image);
+            }
+            $file=$request->file("image-cover");
+            $product->image=time()."_".$file->getClientOriginalName();
+            $file->move(public_path("storage/images"),$product->image);
+            $request['image-cover']=$product->image;
         }
 
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->price = $request->price;
-        $product->stock = $request->stock;
-        $product->category = $request->category;
-        $product->save();
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'category' => $request->category,
+            'image-cover'=>$product->image
+        ]);
+
+        if($request->hasFile("image1")){
+            $gallery_id = $request->gallery_id0;
+            $gallery=Gallery::findOrFail($gallery_id);
+            if (File::exists("storage/images/".$gallery->images)) {
+                File::delete("storage/images/".$gallery->images);
+            }
+            $file=$request->file("image1");
+            $gallery->images=time()."_".$file->getClientOriginalName();
+            $file->move(public_path("storage/images"),$gallery->images);
+            $request['image-cover']=$gallery->images;
+
+            $gallery->update([
+                'image1'=>$gallery->images,
+                'product_id' => $request->product_id
+            ]);
+        }
+
+        if($request->hasFile("image2")){
+            $gallery_id = $request->gallery_id1;
+            $gallery=Gallery::findOrFail($gallery_id);
+            if (File::exists("storage/images/".$gallery->images)) {
+                File::delete("storage/images/".$gallery->images);
+            }
+            $file=$request->file("image2");
+            $gallery->images=time()."_".$file->getClientOriginalName();
+            $file->move(public_path("storage/images"),$gallery->images);
+            $request['image2']=$gallery->images;
+
+            $gallery->update([
+                'image2'=>$gallery->images,
+                'product_id' => $request->product_id
+            ]);
+        }
+
+        if($request->hasFile("image3")){
+            $gallery_id = $request->gallery_id2;
+            $gallery=Gallery::findOrFail($gallery_id);
+            if (File::exists("storage/images/".$gallery->images)) {
+                File::delete("storage/images/".$gallery->images);
+            }
+            $file=$request->file("image3");
+            $gallery->images=time()."_".$file->getClientOriginalName();
+            $file->move(public_path("storage/images"),$gallery->images);
+            $request['image3']=$gallery->images;
+
+            $gallery->update([
+                'image3'=>$gallery->images,
+                'product_id' => $request->product_id
+            ]);
+        }
+
+        // $gallery = Gallery::where("product_id",$product->id)->get();
+
+        // if($request->hasFile("image1")){
+        //     if (File::exists(public_path("storage/images/".$gallery[0]->images))) {
+        //         File::delete(public_path("storage/images/".$gallery[0]->images));
+        //     }
+        //     $gallery[0]->delete();
+
+        //     $file=$request->file("image1");
+        //     $imageName1=time().'_'.$file->getClientOriginalName();
+        //     $file->move(public_path("storage/images"), $imageName1);
+            
+        //     $request['product_id']=$product->id;
+        //     $request['images']=$imageName1;
+        //     Gallery::create($request->all());
+        // }
+
+        // if($request->hasFile("image2")){
+        //     if (File::exists(public_path("storage/images/".$gallery[1]->images))) {
+        //         File::delete(public_path("storage/images/".$gallery[1]->images));
+        //     }
+        //     $gallery[1]->delete();
+
+        //     $file=$request->file("image2");
+        //     $imageName2=time().'_'.$file->getClientOriginalName();
+        //     $file->move(public_path("storage/images"), $imageName2);
+            
+        //     $request['product_id']=$product->id;
+        //     $request['images']=$imageName2;
+        //     Gallery::create($request->all());
+        // }
+
+        // if($request->hasFile("image3")){
+        //     if (File::exists(public_path("storage/images/".$gallery[2]->images))) {
+        //         File::delete(public_path("storage/images/".$gallery[2]->images));
+        //     }
+        //     $gallery[2]->delete();
+
+        //     $file=$request->file("image3");
+        //     $imageName3=time().'_'.$file->getClientOriginalName();
+        //     $file->move(public_path("storage/images"), $imageName3);
+            
+        //     $request['product_id']=$product->id;
+        //     $request['images']=$imageName3;
+        //     Gallery::create($request->all());
+        // }
+        
     
         return redirect('/admin/manage_market');
     }
 
-    // public function managemarket_update(Request $request, int $id) {
-
-    //     $product = Product::find($id);
-
-    //     $product->name = $request['name'];
-    //     $product->description = $request['description'];
-    //     $product->price = $request['price'];
-    //     $product->stock = $request['stock'];
-    //     $product->category = $request['category'];
-    //     $product->image = $request['image'];
-
-    //     $product->save();
-
-    //     return redirect('/admin/manage_market');
-    // }
-
     public function managemarket_destroy($id)
     {
         $product = Product::find($id);
+        if (File::exists(public_path("storage/images/".$product->image))) {
+            File::delete(public_path("storage/images/".$product->image));
+        }
+
+        $galleries = Gallery::where("product_id",$product->id)->get();
+        foreach($galleries as $gallery) {
+            if (File::exists(public_path("storage/images/".$gallery->images))) {
+                File::delete(public_path("storage/images/".$gallery->images));
+            }
+        }
+
         $product->delete();
+        $galleries->each->delete();
 
         return redirect('/admin/manage_market');
     }

@@ -565,6 +565,45 @@ header .btn-get-started:hover {
 	color: #8b7d77;
 }
 
+.carousel {
+  height: 400px;
+}
+
+.carousel .carousel-inner {
+  height: 100%;
+}
+
+.carousel .carousel-inner .carousel-item {
+  height: 100%;
+}
+
+.carousel .carousel-inner .carousel-item img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel .carousel-control-prev {
+  background-color: transparent;
+  border: none;
+}
+
+.carousel .carousel-control-next {
+  background-color: transparent;
+  border: none;
+}
+
+.container-search-category {
+  margin-top: 20px;
+  padding: 0 70px 0 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-serach {
+  height: 40px;
+}
+
 .search_wrap{
 	width: 500px;
 }
@@ -572,7 +611,8 @@ header .btn-get-started:hover {
 .search_wrap .search_box{
 	position: relative;
 	width: 500px;
-	height: 60px;
+	height: 40px;
+  border-radius: 4px;
 }
 
 .search_wrap .search_box .input{
@@ -582,22 +622,22 @@ header .btn-get-started:hover {
 	width: 100%;
 	height: 100%;
 	padding: 10px 20px;
-	border-radius: 3px;
+	border-radius: 20px;
 	font-size: 18px;
 }
 .search_wrap .search_box .btn{
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 60px;
+	width: 40px;
 	height: 100%;
-	background: #8e654e;
+  border-radius: 0 4px 4px 0;
 	z-index: 1;
 	cursor: pointer;
 }
 
 .search_wrap .search_box .btn:hover{
-	background: #d8c7ac;
+  border: none;
 }
 
 .search_wrap .search_box .btn .fas{
@@ -612,7 +652,8 @@ header .btn-get-started:hover {
 :root {
 	/* Theme */
 	--primary-color: #1662f3;
-	--light-color: #eadfce;
+	--light-color: #272727;
+  --second-color: #505050;
 	--dark-color: #283b70;
 }
 
@@ -621,18 +662,17 @@ header .btn-get-started:hover {
 	padding: 0;
 	list-style-type: none;
 	display: flex;
-	gap: 1rem;
+	gap: 20px;
+  height: 28px;
 }
 
 .tag {
-	--color: var(--light-color);
 	font-family: var(--regular-font);
 	font-size: 1rem;
-	border-radius: 100rem;
-	box-shadow: 0 0 0 2px var(--light-color);
+	border-radius: 4px;
+	box-shadow: 0 0 0 2px var(--second-color);
 	background-color: transparent;
-	color: var(--dark-color);
-	font-weight: bold;
+	font-weight: 600;
 	transition:
 		background-color 250ms ease,
 		box-shadow 250ms ease;
@@ -643,7 +683,7 @@ header .btn-get-started:hover {
 	position: relative;
 	color: var(--dark-color);
 	text-decoration: none;
-	padding: .5rem 1rem .5rem 2rem;
+	padding: 2px 16px 2px 28px;
 }
 
 .tag>a::before {
@@ -661,6 +701,10 @@ header .btn-get-started:hover {
 .tag:hover {
 	background-color: var(--light-color);
 	box-shadow: 0 0 0 calc(2px + .25rem) var(--light-color);
+}
+
+.tag:hover a {
+  color: #fff;
 }
 
 .main-keranjang .container a {
@@ -722,15 +766,21 @@ header .btn-get-started:hover {
 /* Details */
 
 .section-details {
-  margin-top: 80px;
+  margin-top: 40px;
   margin-bottom: 200px;
 }
 
+.section-details .container .row .col-7 {
+  padding-left: 60px;
+}
+
 .section-details .container .row .col-7 .main-img {
-  height: 350px;
+  width: 540px;
+  height: 540px;
 }
 
 .section-details .container .row .col-7 .main-img img {
+  width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -740,6 +790,7 @@ header .btn-get-started:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 540px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
