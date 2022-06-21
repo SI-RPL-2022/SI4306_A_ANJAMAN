@@ -18,9 +18,58 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function show()
+    {
+        //Jumlah Item Per Kategori
+
+        $products_tas = Product::getProductByCategory('tas')->count();
+        $products_keranjang = Product::getProductByCategory('keranjang')->count();
+        $products_topi = Product::getProductByCategory('topi')->count();
+        $products_pot = Product::getProductByCategory('pot')->count();
+        $items = [$products_keranjang, $products_tas, $products_topi, $products_pot];
+
+        //Transaksi
+        $dikemas = Order::getOrderByStatus('dikemas')->count();
+        $dikirim = Order::getOrderByStatus('dikirim')->count();
+        $selesai = Order::getOrderByStatus('selesai')->count();
+        $status = [$dikemas, $dikirim, $selesai];
+
+        //Stok per kategori
+        $stok_tas = Product::getProductStockByCategory('tas');
+        $stok_keranjang = Product::getProductStockByCategory('keranjang');
+        $stok_topi = Product::getProductStockByCategory('topi');
+        $stok_pot = Product::getProductStockByCategory('pot');
+        $stock = [$stok_keranjang, $stok_tas, $stok_topi, $stok_pot];
+
+        //Pembelian Bulan Ini
+        $may = Order::getOrderByMonth('selesai', '5')->count();
+        $jun = Order::getOrderByMonth('selesai', '6')->count();
+        
+        //$jul = Order::getOrderByMonth('selesai', '7')->count();
+        //$agt = Order::getOrderByMonth('selesai', '8')->count();
+
+        $purchased = [$may, $jun, //$jul, $agt 
+                    ];
+
+        return view('/admin/dashboard', [
+            'title' => 'Admin | Dashboard',
+        ])  
+            ->with('items',json_encode($items,JSON_NUMERIC_CHECK))
+            ->with('status',json_encode($status,JSON_NUMERIC_CHECK))
+            ->with('stock',json_encode($stock,JSON_NUMERIC_CHECK))
+            ->with('purchased',json_encode($purchased,JSON_NUMERIC_CHECK));;
+
+    }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function transaksi_show()
     {
         return view('/admin/transaksi', [
+            'title' => 'Admin | Transaksi',
             'order' => Order::all()
         ]);
     }
@@ -78,7 +127,8 @@ class AdminController extends Controller
     public function managemarket_show()
     {
         return view('/admin/manage_market', [
-            'product' => Product::all()
+            'product' => Product::all(),
+            'title' => 'Admin | Manage Market'
         ]);
     }
 
@@ -90,6 +140,7 @@ class AdminController extends Controller
         return view('/admin/editmanagemarket', [
             'product' => $product,
             'galleries' => $galleries,
+            'title' => 'Admin | Manage Market'
         ]);
     }
 

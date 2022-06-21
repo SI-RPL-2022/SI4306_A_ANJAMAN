@@ -1,11 +1,10 @@
 
 var xValues = ["Keranjang", "Tas", "Topi", "Pot",];
-var yValues = [55, 49, 44, 24];
 var barColors = [
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
-  "#e8c3b9",
+  "#4e73df",
+  "#1cc88a",
+  "#36b9cc",
+  "#FADA5E",
   "#1e7145"
 ];
 

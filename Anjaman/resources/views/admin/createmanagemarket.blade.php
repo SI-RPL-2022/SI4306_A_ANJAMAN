@@ -37,10 +37,10 @@ Anjaman | Transaksi
                                 <div class="form-group">
                                     <label for="travel_packages_id">Category Anyaman</label>
                                     <select name="category" id="category" class="form-control" value="">
-                                        <option value="Tas Anyaman">Tas Anyaman</option>
-                                        <option value="Topi Anyaman">Topi Anyaman</option>
-                                        <option value="Pot Anyaman">Pot Anyaman</option>
-                                        <option value="Keranjang Anyaman">Keranjang Anyaman</option>
+                                        <option value="Tas">Tas Anyaman</option>
+                                        <option value="Topi">Topi Anyaman</option>
+                                        <option value="Pot">Pot Anyaman</option>
+                                        <option value="Keranjang">Keranjang Anyaman</option>
                                     </select>
                                 </div>
 

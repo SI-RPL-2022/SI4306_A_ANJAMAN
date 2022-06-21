@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 100vh; position: fixed;">
             <!-- Logo Website -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="text-decoration: none;" href="Transaksi Baru.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="text-decoration: none;">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img class="sidebar-card-illustration mb-2" src="{{ asset('images/Anjaman_Logo.png') }}" style="width: 50px" alt="...">
                 </div>
@@ -11,19 +11,19 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="Dashboard.html" class="nav-link text-white" aria-current="page">
+                    <a href="/admin/dashboard" class="text-white nav-link {{ ($title == "Admin | Dashboard") ? 'active' : '' }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span class="mx-2">Dashboard</span></a>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/transaksi" class="nav-link active">
+                    <a href="/admin/transaksi" class="text-white nav-link {{ ($title == "Admin | Transaksi") ? 'active' : '' }}">
                         <i class="fas fa-fw fa-money-bill-alt"></i>
                         <span class="mx-2">Transaction</span></a>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/manage_market" class="nav-link text-white">
+                    <a href="/admin/manage_market" class="nav-link text-white {{ ($title == "Admin | Manage Market") ? 'active' : '' }}">
                         <i class="fas fa-fw fa-shopping-bag"></i>
                         <span class="mx-2">Manage Market</span></a>
                     </a>

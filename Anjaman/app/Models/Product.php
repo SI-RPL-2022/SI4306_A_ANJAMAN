@@ -53,4 +53,12 @@ class Product extends Model
             
         return $product;
     }
+    
+    public static function getProductStockByCategory(String $category) {
+        $product = Product::where('category', $category)
+            ->get()
+            ->sum('stock');
+            
+        return $product;
+    }
 }

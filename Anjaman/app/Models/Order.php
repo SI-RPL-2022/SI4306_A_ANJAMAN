@@ -22,6 +22,23 @@ class Order extends Model
         return $order;
     }
 
+    public static function getOrderByStatus(String $status) {
+        $order = DB::table('orders')
+            ->where('status', $status)
+            ->get();
+            
+        return $order;
+    }
+
+    public static function getOrderByMonth(String $status, $month) {
+        $order = DB::table('orders')
+            ->where('status', $status)
+            ->whereMonth('created_at', $month)
+            ->get();
+            
+        return $order;
+    }
+
     public static function getOrdersByUsernameAndStatus(String $username, Array $array_of_status) {
         $orders = DB::table('orders as o')
             ->join('addresses as a', 'o.address_id', 'a.id')
