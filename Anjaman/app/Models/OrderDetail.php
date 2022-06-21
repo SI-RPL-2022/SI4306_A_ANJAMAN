@@ -11,9 +11,14 @@ class OrderDetail extends Model
     use HasFactory;
 
     public static function getOrderDetailById($id) {
-        $detail = DB::table('order_details')
-            ->where('id', $id)
-            ->get()->first();
+        $detail = DB::table('order_details as od')
+            ->join('products as p', 'od.product_id', '=', 'p.id')
+            ->join('orders as o', 'od.order_id', '=', 'o.id')
+            ->join('addresses as a', 'o.address_id', '=', 'a.id')
+            ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'o.status', 
+                    'a.address', 'a.subdistrict', 'a.city', 'a.province', 'a.postal_code', 'a.phone_number', 'a.fullname')
+            ->where('o.id', $id)
+            ->get();
             return $detail;
     }
 

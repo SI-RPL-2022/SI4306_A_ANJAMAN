@@ -22,18 +22,25 @@ use App\Http\Controllers\AdminController;
 // main routes
 Route::get('/', [HomeController::class, 'main']);
 
-// user management
+// user management (login regis)
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/user/register', [UserController::class, 'register']);
     Route::post('/user/register', [UserController::class, 'store']);
     Route::get('/user/login', [UserController::class, 'login'])->name('login');
     Route::post('/user/login', [UserController::class, 'authenticate']);
 });
+
+// user management (profile)
 Route::group(['middleware' => 'auth'], function() {
     Route::post('/user/logout', [UserController::class, 'logout']);
     Route::get('/user/profile', [UserController::class, 'profile']);
     Route::get('/user/editaddress/{id}', [UserController::class, 'edit']);
     Route::post('/user/updateaddress/{id}', [UserController::class, 'update']);
+});
+
+// user management (krisar)
+Route::group(['middleware' => 'auth'], function() {
+    Route::post('/user/create_feedback', [HomeController::class, 'create_feedback']);
 });
 
 // market management
@@ -90,5 +97,8 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin/editmanagemarket/{id}', [AdminController::class, 'managemarket_edit']);
     Route::post('/admin/updatemanagemarket/{id}', [AdminController::class, 'managemarket_update']);
     Route::delete('/admin/deletemanagemarket/{id}',  [AdminController::class, 'managemarket_destroy']);
+
+    //krisar
+    Route::get('/admin/feedback', [AdminController::class, 'feedback']);
 
 });

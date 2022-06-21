@@ -150,10 +150,13 @@ Anjaman | Home
             <div class="col text-center">
               <h2>What They Say</h2>
               <p>
-                It has survived not only five centuries, but also the leap into
+                Sampaikan Kritik & Saran anda terhadap web kami
                 <br />
-                electronic typesetting, remaining essentially unchanged.
+                Satu suara anda akan sangat berguna terhadap pengembangan web Anjaman
               </p>
+              <a href="#krisar" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal">
+                  <i class="fas fa-bullhorn fa-sm text-white-50"></i> Beri Kritik Saran
+              </a>
             </div>
           </div>
         </div>
@@ -161,69 +164,56 @@ Anjaman | Home
       <section class="section-testimonials-content" id="testimonialsContent">
         <div class="container">
           <div class="section-popular-travel row justify-content-center match-height">
-            <div class="col-sm-6 col-md-6 col-lg-4">
-              <div class="card card-testimonial text-center">
-                <div class="testimonial-content">
-                  <img src="images/Ellipse 3.png" alt="" class="mb-4 rounded-circle"
-                    style="width: 150px; height: 150px;" />
-                  <h3 class="mb-4">Alfa Safira</h3>
-                  <p class="testimonials">
-                    “ Anjaman memudahkan saya untuk menemukan penjual kerajinan anyaman yang saya inginkan dengan mudah “
-                  </p>
-                </div>
-                <hr />
-                <div class="star">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-4">
-              <div class="card card-testimonial text-center">
-                <div class="testimonial-content">
-                  <img src="images/Ellipse 4.png" alt="" class="mb-4 rounded-circle"
-                    style="width: 150px; height: 150px;" />
-                  <h3 class="mb-4">Sarah</h3>
-                  <p class="testimonials">
-                    “ Anyaman yang ada dipulau Sumatera dapat ditemukan dengan mudah, ini juga sangat membantu produk mereka agar ;ebih dikenal masyarakat “
-                  </p>
-                </div>
-                <hr />
-                <div class="star">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
+            @foreach ($feedbacks->take(3) as $feedback)
+              <div class="col-sm-6 col-md-6 col-lg-4">
+                <div class="card card-testimonial text-center">
+                  <div class="testimonial-content">
+                    <img src="images/Ellipse 3.png" alt="" class="mb-4 rounded-circle"
+                      style="width: 150px; height: 150px;" />
+                    <h3 class="mb-4">{{$feedback->fullname}}</h3>
+                    <p class="testimonials">
+                      {{'“ '.$feedback->feedback. ' “'}}
+                    </p>
+                  </div>
+                  <hr />
+                  <div class="star">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-4">
-              <div class="card card-testimonial text-center">
-                <div class="testimonial-content mb-auto">
-                  <img src="images/Ellipse 2.png" alt="" class="mb-4 rounded-circle"
-                    style="width: 150px; height: 150px;" />
-                  <h3 class="mb-4">Virda Amelia</h3>
-                  <p class="testimonials">
-                    “ Dengan Anjaman membantu semua UMKM yang ada. Kini saya dapat menjual kerajinan yang saya buat dengan lebih efisien “
-                  </p>
-                </div>
-                <hr />
-                <div class="star">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
       </section>
     </div>
+        <!-- Modal HTML -->
+    <form action="/user/create_feedback" method="post">
+      <div id="krisar" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+          <div class="modal-content">
+            <div class="modal-header justify-content-center">
+            <div>
+                <img src="images/ilus_krisar.png" alt="" style="width:50%" />
+            </div>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+              <h4>Kritik & Saran</h4>	
+                @csrf
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Masukkan Kritik & Saran Anda</label>
+                  <textarea class="form-control" name="feedback" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+              </form>
+              <button class="btn btn-success" type="submit">Submit!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>     
   </main>
 @endsection

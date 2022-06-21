@@ -99,6 +99,7 @@ Anjaman | Profile
                                                 <th>Status</th>
                                                 <th>Product</th>
                                                 <th>Quantity</th>
+                                                <th>Shipping Fee</th>
                                                 <th>Total Price</th>
                                             </tr>
                                         </thead>
@@ -106,7 +107,7 @@ Anjaman | Profile
                                         @foreach ($orders as $order)
                                             <tr>
                                                 <td>{{$order->id}}</td>
-                                                <td>{{$order->username}}</td>
+                                                <td>{{$addresses->fullname}}</td>
                                                 <td>{{$order->created_at}}</td>
                                                 <td>{{$order->status}}</td>
                                         
@@ -131,6 +132,7 @@ Anjaman | Profile
                                                             $subtotal += $order_detail->quantity * $order_detail->price ;
                                                     }
                                                 @endphp
+                                                <td> {{$order->shipper}} </td>
                                                 <td> {{$subtotal + $order->shipper}} </td>
                                             </tr>
                                         @endforeach

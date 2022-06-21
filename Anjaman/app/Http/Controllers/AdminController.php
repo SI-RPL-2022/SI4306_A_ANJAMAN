@@ -7,6 +7,7 @@ use App\Models\OrderDetail;
 use App\Models\Address;
 use App\Models\Product;
 use App\Models\Gallery;
+use App\Models\Feedback;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -108,9 +109,12 @@ class AdminController extends Controller
     public function detail(int $id) {
 
         $detail = OrderDetail::getOrderDetailById($id);
+        $order = Order::getOrderById($id);
 
         return view('/admin/detailtransaksi', [
+            'title' => 'Admin | Transaksi',
             'detail' => $detail,
+            'order' => $order
         ]);
     }
 
@@ -346,5 +350,12 @@ class AdminController extends Controller
         $galleries->each->delete();
 
         return redirect('/admin/manage_market');
+    }
+
+    public function feedback() {
+        return view('admin/feedback', [
+            'title' => 'Admin | Feedback',
+            'feedbacks' => Feedback::getFeedbacks(),
+        ]);
     }
 }

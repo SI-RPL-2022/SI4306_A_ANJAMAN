@@ -26,35 +26,54 @@ Anjaman | Transaksi
                             <table class="table table-bordered">
                                 <tr>
                                     <th>Invoice ID</th>
-                                    <td>{{$detail->id}}</td>
+                                    <td>{{$order->id}}</td>
                                 </tr>  
                                 <tr>
                                     <th>Customer</th>
-                                    <td>xxx</td>
+                                    <td>{{$order->username}}</td>
                                 </tr>
                                 <tr>
-                                    <th>Pengiriman</th>
-                                    <td>xxx</td>
-                                </tr>  
+                                    <th>Alamat Pengiriman</th>
+                                    <td>@foreach ($detail as $order_detail) 
+                                            @if ($order_detail->order_id == $order->id and $loop->first)
+                                                {{ $order_detail->fullname }}<br>
+                                                {{ $order_detail->address }}<br>
+                                                {{ $order_detail->subdistrict . ', ' . $order_detail->city . ', ' . $order_detail->province }}<br>
+                                                {{$order_detail->postal_code .' | T : ' .  $order_detail->phone_number}}
+                                            @endif 
+                                        @endforeach</td>
+                                </tr>
                                 <tr>
                                     <th>Product</th>
-                                    <td>xxx</td>
-                                </tr> 
+                                    <td>@foreach ($detail as $order_detail) 
+                                            @if ($order_detail->order_id == $order->id)
+                                                {{ $order_detail->name }} x {{ $order_detail->quantity }}<br> 
+                                            @endif 
+                                        @endforeach
+                                    </td>
+                                </tr>
+                                @php
+                                $subtotal = 0;
+                                    foreach ($detail as $order_detail) {
+                                        if ($order_detail->order_id == $order->id)
+                                            $subtotal += $order_detail->quantity * $order_detail->price ;
+                                    }
+                                @endphp
                                 <tr>
-                                    <th>Quantity</th>
-                                    <td>xxx</td>
-                                </tr> 
-                                <tr>
-                                    <th>Alamat</th>
-                                    <td>xxx</td>
+                                    <th>Subtotal Produk</th>
+                                    <td>{{$subtotal}}</td>
                                 </tr>
                                 <tr>
+                                    <th>Biaya Pengiriman</th>
+                                    <td>{{$order->shipper}}</td>
+                                </tr>   
+                                <tr>
                                     <th>Total Harga</th>
-                                    <td>xxx</td>
+                                    <td>{{$subtotal + $order->shipper}}</td>
                                 </tr>
                                 <tr>
                                     <th>Status</th>
-                                    <td>xxx</td>
+                                    <td>{{$order->status}}</td>
                                 </tr>
                             </table>
                         </div>    
