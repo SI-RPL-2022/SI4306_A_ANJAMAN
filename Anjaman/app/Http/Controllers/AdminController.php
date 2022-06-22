@@ -54,6 +54,7 @@ class AdminController extends Controller
 
         return view('/admin/dashboard', [
             'title' => 'Admin | Dashboard',
+            'bestsellers' => Product::getBestSellingProduct(),
         ])  
             ->with('items',json_encode($items,JSON_NUMERIC_CHECK))
             ->with('status',json_encode($status,JSON_NUMERIC_CHECK))

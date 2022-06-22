@@ -84,7 +84,7 @@ Anjaman | Transaksi
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>2022 Copyright • All rights reserved • Made by Capstone Project Team A</span>
                     </div>
                 </div>
             </footer>

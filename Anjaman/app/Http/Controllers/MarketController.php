@@ -63,6 +63,7 @@ class MarketController extends Controller
             'product' => Product::getProductById($id),
             'products' => Product::getProducts(),
             'galleries' => Gallery::getgalleries(),
+            'bestsellers' => Product::getBestSellingProduct(),
             'title' => 'Home | Market'
         ]);
     }

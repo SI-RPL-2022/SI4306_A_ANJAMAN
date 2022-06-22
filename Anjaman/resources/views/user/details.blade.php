@@ -5,7 +5,7 @@ Anjaman | Details
 @endsection
 
 @section('content')
-    <section class="section-details">
+    <section class="section-details" style="margin-bottom:50px">
         <div class="container">
             <div class="row g-2">
                 <div class="col-7">
@@ -67,22 +67,28 @@ Anjaman | Details
             </div>
         </div>
     </section>
-
-    <section class="row justify-content-center mt-4">
-        @foreach ($products as $product)
-        <div class="card mr-4 mb-4 shadow p-2 mb-5 bg-white" style="width: 16rem; border-radius: 12px;">
-            <img style="width:100%" src="{{ asset('storage/images/' . $product->image) }}" class="card-img-top" alt="">
-            <div class="card-body">
-                <a href="/user/details/{{ $product->id }}" style="text-decoration: none; color: black;">
-                    <h5 class="card-text text-center font-weight-bold" style="font-size: 16px; height: 40px;">{{ $product->name }}</h5>
-                </a>
-                <p class="text-center" style="font-size: 16px; margin-top: 4px;">Rp. {{ $product->price }}</p>
-                <div class="card-body row justify-content-center">
-                    <a href="/cart/store/{{ $product->id }}" class="btn btn-dark col-md-8 text-light" style="border: none; font-size: 12px; font-weight: 600;">
-                    Add To Cart</a>
+        <div class="container">
+            <div class="row g-2">
+                <div class="col-7">
+                    <h4 style="font-style:italic"> Checkout Our Best Selling Products! </h4>
                 </div>
             </div>
-        </div>
+        </div>   
+    <section class="row justify-content-center mt-4">
+        @foreach ($bestsellers->take(4) as $bestseller)
+            <div class="card mr-4 mb-4 shadow p-2 mb-5 bg-white" style="width: 16rem; border-radius: 12px;">
+                <img style="width:100%" src="{{ asset('storage/images/' . $bestseller->image) }}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <a href="/user/details/{{ $bestseller->id }}" style="text-decoration: none; color: black;">
+                        <h5 class="card-text text-center font-weight-bold" style="font-size: 16px; height: 40px;">{{ $bestseller->name }}</h5>
+                    </a>
+                    <p class="text-center" style="font-size: 16px; margin-top: 4px;">Rp. {{ $bestseller->price }}</p>
+                    <div class="card-body row justify-content-center">
+                        <a href="/cart/store/{{ $bestseller->id }}" class="btn btn-dark col-md-8 text-light" style="border: none; font-size: 12px; font-weight: 600;">
+                        Add To Cart</a>
+                    </div>
+                </div>
+            </div>
         @endforeach
     </section>
 

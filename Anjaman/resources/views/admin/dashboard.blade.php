@@ -95,6 +95,25 @@ Anjaman | Transaksi
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Best Seller -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800 mt-4">Best Selling Products</h1>
+                    </div>
+                    <section class="row justify-content-center mt-4">
+                    @foreach ($bestsellers as $bestseller)
+                        <div class="card mr-4 mb-4 shadow p-2 mb-5 bg-white" style="width: 16rem; border-radius: 12px;">
+                            <img style="width:100%" src="{{ asset('storage/images/' . $bestseller->image) }}" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <a href="/user/details/{{ $bestseller->id }}" style="text-decoration: none; color: black;">
+                                    <h5 class="card-text text-center font-weight-bold" style="font-size: 16px; height: 40px;">{{ $bestseller->name }}</h5>
+                                </a>
+                                <p class="text-center" style="font-size: 16px; margin-top: 4px;">Rp. {{ $bestseller->price }}</p>
+                                <p class="text-center" style="font-size: 16px; margin-top: 4px; color:crimson">*Times Ordered :  {{ $bestseller->cnt }}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                    </section>
                 </div>
             
             <!-- End of Main Content -->
