@@ -26,7 +26,7 @@ Anjaman | Transaksi
                                     <div class="col-sm-6 col-md-6 col-lg-4">
                                         <div class="card card-testimonial text-center">
                                         <div class="testimonial-content" style="margin:20px 20px 20px 20px">
-                                            <img src="{{asset('storage/images/' . $feedback->profile_picture)}}" alt="{{asset('/images/' . $feedback->profile_picture)}}" class="mb-4 rounded-circle"
+                                            <img src="{{asset('storage/images/' . $feedback->profile_picture)}}" onerror="this.src='{{asset('/images/' . $feedback->profile_picture)}}'" class="mb-4 rounded-circle"
                                             style="width: 150px; height: 150px;" />
                                             <h3 class="mb-4">{{$feedback->fullname}}</h3>
                                             <p class="testimonials">
