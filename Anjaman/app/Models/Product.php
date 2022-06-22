@@ -66,9 +66,9 @@ class Product extends Model
         DB::statement("SET SQL_MODE=''");
         $bestsellers = DB::table('products as p')
         ->join('order_details as od', 'od.product_id', '=', 'p.id')
-        ->select('od.*', 'p.*', DB::raw('COUNT(od.product_id) as cnt'))
+        ->select('od.*', 'p.*', DB::raw('SUM(od.quantity) as qty'))
         ->groupBy('p.id')
-        ->orderByDesc('cnt')
+        ->orderByDesc('qty')
         ->get();
         return $bestsellers;
     }

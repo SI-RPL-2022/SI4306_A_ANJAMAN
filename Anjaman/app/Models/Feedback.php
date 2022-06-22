@@ -16,7 +16,7 @@ class Feedback extends Model
     public static function getFeedbacks() {
         $feedback = DB::table('feedbacks as fb')
             ->join('users as u', 'fb.user_id', '=', 'u.id')
-            ->select('fb.*', 'u.fullname', //'u.picture'
+            ->select('fb.*', 'u.fullname', 'u.profile_picture'
             )
             ->orderByDesc('created_at')
             ->get();

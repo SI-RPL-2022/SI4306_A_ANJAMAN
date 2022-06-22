@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('role')->default('user');
             $table->string('fullname');
             $table->char('phone_number');
-            $table->string('profile_picture')->nullable();
+            $table->string('profile_picture')->default('viper.png');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

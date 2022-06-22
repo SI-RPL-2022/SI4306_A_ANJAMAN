@@ -10,6 +10,11 @@ class OrderDetail extends Model
 {
     use HasFactory;
 
+    
+    public function orders(){
+        return $this->belongsTo(Order::class);
+    }
+
     public static function getOrderDetailById($id) {
         $detail = DB::table('order_details as od')
             ->join('products as p', 'od.product_id', '=', 'p.id')

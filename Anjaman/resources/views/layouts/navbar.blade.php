@@ -37,6 +37,7 @@
             <li>
             <form class="d-flex">
                 <a class="nav-link {{ ($title == "Home | Profile") ? 'active' : '' }}"" style=" border-radius: 10px;" href="/user/profile">
+                <img src="{{ asset('storage/images/' . Auth::user()->profile_picture) }}" onerror="this.src='{{asset('/images/' . Auth::user()->profile_picture)}}'" width="32" height="32" class="rounded-circle me-2">
                 {{ Auth::user()->fullname }}
                 </a>
             </form>

@@ -108,6 +108,20 @@ class UserController extends Controller
             'title' => 'Home | Profile'
         ]);
     }
+
+    public function edit_profilepic(Request $request, int $id){
+        $user = User::find($id);
+        $image = time().'_'.$request->profile_picture->getClientOriginalName();
+        $request->profile_picture->move(public_path('storage/images'), $image);
+        $user->profile_picture = $image;
+
+        $user -> update ([
+            'profile_picture'=> $image
+        ]);
+
+        return redirect('/user/profile');
+    }
+
     public function edit(int $id) {
 
         // authorization

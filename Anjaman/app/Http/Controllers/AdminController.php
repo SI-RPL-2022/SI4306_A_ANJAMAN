@@ -281,54 +281,6 @@ class AdminController extends Controller
                 'product_id' => $request->product_id
             ]);
         }
-
-        // $gallery = Gallery::where("product_id",$product->id)->get();
-
-        // if($request->hasFile("image1")){
-        //     if (File::exists(public_path("storage/images/".$gallery[0]->images))) {
-        //         File::delete(public_path("storage/images/".$gallery[0]->images));
-        //     }
-        //     $gallery[0]->delete();
-
-        //     $file=$request->file("image1");
-        //     $imageName1=time().'_'.$file->getClientOriginalName();
-        //     $file->move(public_path("storage/images"), $imageName1);
-            
-        //     $request['product_id']=$product->id;
-        //     $request['images']=$imageName1;
-        //     Gallery::create($request->all());
-        // }
-
-        // if($request->hasFile("image2")){
-        //     if (File::exists(public_path("storage/images/".$gallery[1]->images))) {
-        //         File::delete(public_path("storage/images/".$gallery[1]->images));
-        //     }
-        //     $gallery[1]->delete();
-
-        //     $file=$request->file("image2");
-        //     $imageName2=time().'_'.$file->getClientOriginalName();
-        //     $file->move(public_path("storage/images"), $imageName2);
-            
-        //     $request['product_id']=$product->id;
-        //     $request['images']=$imageName2;
-        //     Gallery::create($request->all());
-        // }
-
-        // if($request->hasFile("image3")){
-        //     if (File::exists(public_path("storage/images/".$gallery[2]->images))) {
-        //         File::delete(public_path("storage/images/".$gallery[2]->images));
-        //     }
-        //     $gallery[2]->delete();
-
-        //     $file=$request->file("image3");
-        //     $imageName3=time().'_'.$file->getClientOriginalName();
-        //     $file->move(public_path("storage/images"), $imageName3);
-            
-        //     $request['product_id']=$product->id;
-        //     $request['images']=$imageName3;
-        //     Gallery::create($request->all());
-        // }
-        
     
         return redirect('/admin/manage_market');
     }

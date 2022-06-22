@@ -36,6 +36,8 @@ Anjaman | Profile
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
+                                    <center><img src="{{ asset('storage/images/' . Auth::user()->profile_picture) }}" onerror="this.src='{{asset('/images/' . Auth::user()->profile_picture)}}'" width="100" height="100" class="rounded-circle me-2"></center>
+                                    <center style="margin-bottom: 20px; margin-top: 20px;"><a style="color:#8E654E" href="#UploadImage" data-toggle="modal">Edit Profile Picture</a></center>
                                     <table class="table">
                                         <tr>
                                             <th>Name</th>
@@ -54,11 +56,31 @@ Anjaman | Profile
                                             <td>{{ $user->phone_number }}</td>
                                         </tr> 
                                     </table>
-                                    
-        
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Modal HTML -->
+                        <form action="/user/upload_image/{{$user->id}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div id="UploadImage" class="modal fade">
+                                <div class="modal-dialog modal-confirm">
+                                    <div class="modal-content">
+                                        <div class="modal-header justify-content-center">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                            <h4>Upload Image</h4>	
+                                                @csrf
+                                                <div class="mb-3">
+                                                    <input name="profile_picture" class="form-control" type="file" id="formFile">
+                                                </div>
+                                            <button class="btn btn-success" type="submit">Submit!</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>     
                         <!-- Area Chart -->
                         <div class="col-xl-6 col-lg-6">
                             <div class="card shadow mb-4">
