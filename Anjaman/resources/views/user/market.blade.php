@@ -50,19 +50,24 @@ Anjaman | Market
         <div class="container-category">
             <ul class="tags">
                 <li class="tag" style="--color: #efd81d;">
-                    <a href="/user/market">All</a>
+                    <a class="btn btn-outline-dark {{ ($showing == "all") ? 'active' : '' }}""" href="/user/market"
+                    style="font-weight:bold">All</a>
                 </li>
                 <li class="tag" style="--color: #41b883;">
-                    <a href="/user/market/category=tas">Tas</a>
+                    <a class="btn btn-outline-dark {{ ($showing == "tas") ? 'active' : '' }}""" href="/user/market/category=tas"
+                    style="font-weight:bold">Tas</a>
                 </li>
                 <li class="tag" style="--color: #61dafb;">
-                    <a href="/user/market/category=keranjang">Keranjang</a>
+                    <a class="btn btn-outline-dark {{ ($showing == "keranjang") ? 'active' : '' }}""" href="/user/market/category=keranjang"
+                    style="font-weight:bold">Keranjang</a>
                 </li>
                 <li class="tag" style="--color: #ff3e00;">
-                    <a href="/user/market/category=topi">Topi</a>
+                    <a class="btn btn-outline-dark {{ ($showing == "topi") ? 'active' : '' }}""" href="/user/market/category=topi"
+                    style="font-weight:bold">Topi</a>
                 </li>
-                <li class="tag" style="--color: purple;">
-                    <a href="/user/market/category=pot">Pot</a>
+                <li class="tag" style="--color: #ff2392;">
+                    <a class="btn btn-outline-dark {{ ($showing == "pot") ? 'active' : '' }}""" href="/user/market/category=pot"
+                    style="font-weight:bold">Pot</a>
                 </li>
             </ul>
         </div>

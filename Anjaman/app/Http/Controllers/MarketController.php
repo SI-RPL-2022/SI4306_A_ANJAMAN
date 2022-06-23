@@ -14,7 +14,8 @@ class MarketController extends Controller
     public function show() {
         return view('user/market', [
             'products' => Product::getProducts(),
-            'title' => 'Home | Market'
+            'title' => 'Home | Market',
+            'showing' => 'all'
         ]);
     }
 
@@ -28,7 +29,8 @@ class MarketController extends Controller
                   ->where('name','LIKE','%'.$search_text.'%')->get();
         return view('user/market',[
             'products'=>$product,
-            'title' => 'Home | Market'
+            'title' => 'Home | Market',
+            'showing' => 'all'
     ]);
 
     #CATEGORY#
@@ -37,25 +39,29 @@ class MarketController extends Controller
     public function show_tas() {
         return view('user/market', [
             'products' => Product::getProductByCategory('tas'),
-            'title' => 'Home | Market'
+            'title' => 'Home | Market',
+            'showing' => 'tas'
         ]);
     }
     public function show_keranjang() {
         return view('user/market', [
             'products' => Product::getProductByCategory('keranjang'),
-            'title' => 'Home | Market'
+            'title' => 'Home | Market',
+            'showing' => 'keranjang'
         ]);
     }
     public function show_topi() {
         return view('user/market', [
             'products' => Product::getProductByCategory('topi'),
-            'title' => 'Home | Market'
+            'title' => 'Home | Market',
+            'showing' => 'topi'
         ]);
     }
     public function show_pot() {
         return view('user/market', [
             'products' => Product::getProductByCategory('pot'),
-            'title' => 'Home | Market'
+            'title' => 'Home | Market',
+            'showing' => 'pot'
         ]);
     }
 
