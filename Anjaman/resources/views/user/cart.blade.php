@@ -38,9 +38,12 @@ Anjaman | Profile
               @if (count($products) == 0)
                 <tbody>
                   <tr>
-                    <th>
-                      <div class="empty-cart">
-                        <h6>Keranjangmu kosong</h6>
+                    <th colspan="4">
+                      <div class="container-empty" style="display: flex; justify-content: center;">
+                          <div class="empty" style="width: 280px; text-align: center;">
+                              <img src="{{ asset('/images/5e53539b550b7634d6f2aade_peep-25.png') }}" alt="" style="width: 100%;">
+                              <h5 style="margin-top: -40px; font-weight: bold;">No product here, Lets add some product!</h5>
+                          </div>
                       </div>
                     </th>
                   </tr>

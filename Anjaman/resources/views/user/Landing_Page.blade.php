@@ -11,7 +11,7 @@ Anjaman | Home
     <p class="mt-3">
       Kami menghadirkan kesempatan bisnis untuk pengembangan usaha Anda
     </p>
-    <a href="user/market" class="btn btn-get-started px-4 mt-4">
+    <a href="user/market" class="btn btn-dark px-4 mt-4">
       Get Started
     </a>
   </header>

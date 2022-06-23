@@ -82,7 +82,7 @@ Anjaman | Details
         @foreach ($bestsellers->take(4) as $bestseller)
         <div class="card">
           <div class="container-image">
-            <img src="{{ asset('storage/images/' . $product->image) }}" alt="">
+            <img src="{{ asset('storage/images/' . $bestseller->image) }}" alt="">
           </div>
 
           <div class="container-content">
@@ -102,8 +102,8 @@ Anjaman | Details
                 @endif
                 </div>
             </div>
-            <a href="/user/details/{{ $product->id }}" style="text-decoration: none; color: black;">
-                <h4>{{ $bestseller->name }}</h4>
+            <a href="/user/details/{{ $bestseller->id }}" style="text-decoration: none; color: black;">
+                <h4 class="title-product">{{ $bestseller->name }}</h4>
             </a>
             <h4>Stock -> {{ $bestseller->stock }}</h4>
             <h4>Rp. {{ $bestseller->price }}</h4>
