@@ -14,24 +14,22 @@ Anjaman | Market
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/images/Product_Keranjang.png" class="d-block w-100" alt="">
+                <img src="/images/Banner3.png" class="d-block w-100" alt="">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                    <h5>Temukan Keranjangmu</h5>
+                    <p>Find and buy what u looking for with Anjaman</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/images/Product_Keranjang.png" class="d-block w-100" alt="">
+                <img src="/images/Banner2.png" class="d-block w-100" alt="">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+                    <h5>Tas Anyaman Terbaik</h5>
+                    <p>Find and buy what u looking for with Anjaman</p>
                 </div>
             </div>
             <div class="carousel-item">
-            <img src="/images/Product_Keranjang.png" class="d-block w-100" alt="">
+            <img src="/images/Banner1.png" class="d-block w-100" alt="">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
             </div>
             </div>
         </div>
@@ -91,10 +89,13 @@ Anjaman | Market
     <!-- Card -->
     <section class="row justify-content-left mt-4" style="margin: 0; padding: 0; margin-left: 70px;">
     @if (count($products) == 0)
-            <div class="empty">
-                <h5 style="color:#8E654E;">====Produk Tidak Ditemukan====</h5>
+        <div class="container-empty" style="width: 100%; display: flex; justify-content: center; margin-left: -70;">
+            <div class="empty" style="width: 280px; text-align: center;">
+                <img src="{{ asset('/images/5e5358e38e249322cc0675e2_peep-62.png') }}" alt="" style="width: 100%;">
+                <h5 style="margin-top: -40px; font-weight: bold;">Sorry, no Product Found</h5>
             </div>
-        @endif
+        </div>
+    @endif
     @if(isset($products))
         @if(count(array($products)) > 0)
             @foreach ($products as $product)
