@@ -767,7 +767,6 @@ header .btn-get-started:hover {
 
 .section-details {
   margin-top: 40px;
-  margin-bottom: 200px;
 }
 
 .section-details .container .row .col-7 {
@@ -1099,4 +1098,64 @@ header .btn-get-started:hover {
 .section-best-seller .container-bestseller :hover .container-content h4 {
   font-size: 16px;
   color: #fff;
+}
+
+.section-reviews {
+  padding: 80px 170px 0 170px;
+}
+
+.section-reviews h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+
+.section-reviews .container-review {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.section-reviews .container-review .container-image-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.section-reviews .container-review .container-image-content .image {
+  width: 88px;
+  height: 88px;
+  background-color: #071C4D;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.section-reviews .container-review .container-image-content .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section-reviews .container-review .container-image-content .username-rate {
+  width: 180px;
+}
+
+.section-reviews .container-review .container-image-content .username-rate h4 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.section-reviews .container-review .container-image-content .username-rate .icon-star {
+  font-size: 16px;
+}
+
+.section-reviews .container-review .container-comment-tanggal p {
+  font-size: 16px;
+}
+
+.section-reviews .container-review .container-comment-tanggal .tanggal p {
+  text-align: right;
+  color: #909090;
 }

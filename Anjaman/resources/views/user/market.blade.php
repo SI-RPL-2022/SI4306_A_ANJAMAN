@@ -91,10 +91,10 @@ Anjaman | Market
     <!-- Card -->
     <section class="row justify-content-left mt-4" style="margin: 0; padding: 0; margin-left: 70px;">
     @if (count($products) == 0)
-                <div class="empty">
-                    <h5 style="color:#8E654E;">====Produk Tidak Ditemukan====</h5>
-                </div>
-            @endif
+            <div class="empty">
+                <h5 style="color:#8E654E;">====Produk Tidak Ditemukan====</h5>
+            </div>
+        @endif
     @if(isset($products))
         @if(count(array($products)) > 0)
             @foreach ($products as $product)

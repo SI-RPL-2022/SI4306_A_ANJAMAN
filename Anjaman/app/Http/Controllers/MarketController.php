@@ -65,6 +65,7 @@ class MarketController extends Controller
             'products' => Product::getProducts(),
             'galleries' => Gallery::getgalleries(),
             'review' => Review::getReviewProduct($id),
+            'reviews' => Review::getReviewUser($id),
             'bestsellers' => Product::getBestSellingProduct(),
             'title' => 'Home | Market'
         ]);

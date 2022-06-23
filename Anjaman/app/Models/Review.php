@@ -27,4 +27,17 @@ class Review extends Model
             ->get()->first();
             return $review;
     }
+
+    public static function getReviewUser($id) {
+        $reviews = DB::table('reviews as r')
+            ->join('order_details as od', 'r.order_detail_id', '=', 'od.id')
+            ->join('products as p', 'od.product_id', '=', 'p.id')
+            ->join('orders as o', 'od.order_id', '=', 'o.id')
+            ->join('users as u', 'o.username', '=', 'u.username')
+            ->select('r.*', 'od.order_id', 'od.product_id', 'p.name', 'p.price', 'o.username', 'o.created_at', 'u.fullname', 'u.profile_picture')
+            ->groupBy('r.id')
+            ->where('p.id', $id)
+            ->get();
+            return $reviews;
+    }
 }
