@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Address;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -151,6 +152,24 @@ class UserController extends Controller
 
         // updating address data
         DB::table('addresses')->where('id', $id)->update($address);
+        return redirect('/user/profile');
+    }
+
+    public function review(Request $request, $id) {
+
+        $order_detail=OrderDetail::findOrFail($id);
+
+        $review = new Review([
+            'rating' => $request->product_rating,
+            'comment' => $request->comment,
+            'order_detail_id' => $order_detail->id,
+        ]);
+        $review->save();
+        
+        $order_detail->update([
+            'status_review' => $order_detail->status_review = true
+        ]);
+
         return redirect('/user/profile');
     }
 

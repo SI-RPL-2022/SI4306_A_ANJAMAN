@@ -42,11 +42,18 @@ Anjaman | Details
                         </div>
                         <div class="star-remaining">
                             <div class="icon-star">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
+                            @if($review)
+                                @for ($i =1; $i<= $review->avgrate; $i++)
+                                    <input type="radio" value="{{$i}}" name="product_rating" checked id="rating{{$i}}">
+                                    <label for="rating{{$i}}" class="fa fa-star"></label>
+                                @endfor
+                            @else
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            @endif
                             </div>
                             <div class="remaining">
                                 <p>Remaining: {{ $product->stock }}</p>
@@ -67,29 +74,43 @@ Anjaman | Details
             </div>
         </div>
     </section>
-        <div class="container">
-            <div class="row g-2">
-                <div class="col-7">
-                    <h4 style="font-style:italic"> Checkout Our Best Selling Products! </h4>
-                </div>
-            </div>
-        </div>   
-    <section class="row justify-content-center mt-4">
+
+    <section class="section-best-seller">
+      <h1>Checkout Our Best Selling Products!</h1>
+
+      <div class="container-bestseller">
         @foreach ($bestsellers->take(4) as $bestseller)
-            <div class="card mr-4 mb-4 shadow p-2 mb-5 bg-white" style="width: 16rem; border-radius: 12px;">
-                <img style="width:100%" src="{{ asset('storage/images/' . $bestseller->image) }}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <a href="/user/details/{{ $bestseller->id }}" style="text-decoration: none; color: black;">
-                        <h5 class="card-text text-center font-weight-bold" style="font-size: 16px; height: 40px;">{{ $bestseller->name }}</h5>
-                    </a>
-                    <p class="text-center" style="font-size: 16px; margin-top: 4px;">Rp. {{ $bestseller->price }}</p>
-                    <div class="card-body row justify-content-center">
-                        <a href="/cart/store/{{ $bestseller->id }}" class="btn btn-dark col-md-8 text-light" style="border: none; font-size: 12px; font-weight: 600;">
-                        Add To Cart</a>
-                    </div>
+        <div class="card">
+          <div class="container-image">
+            <img src="{{ asset('storage/images/' . $product->image) }}" alt="">
+          </div>
+
+          <div class="container-content">
+            <div class="star-remaining">
+                <div class="icon-star">
+                @if($review)
+                    @for ($i =1; $i<= $review->avgrate; $i++)
+                        <input type="radio" value="{{$i}}" name="product_rating" checked id="rating{{$i}}">
+                        <label for="rating{{$i}}" class="fa fa-star"></label>
+                    @endfor
+                @else
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                @endif
                 </div>
             </div>
+            <a href="/user/details/{{ $product->id }}" style="text-decoration: none; color: black;">
+                <h4>{{ $bestseller->name }}</h4>
+            </a>
+            <h4>Stock -> {{ $bestseller->stock }}</h4>
+            <h4>Rp. {{ $bestseller->price }}</h4>
+          </div>
+        </div>
         @endforeach
+      </div>
     </section>
 
     <script>

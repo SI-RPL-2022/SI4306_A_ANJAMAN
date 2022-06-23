@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Gallery;
+use App\Models\Review;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\Cast\String_;
 
@@ -63,6 +64,7 @@ class MarketController extends Controller
             'product' => Product::getProductById($id),
             'products' => Product::getProducts(),
             'galleries' => Gallery::getgalleries(),
+            'review' => Review::getReviewProduct($id),
             'bestsellers' => Product::getBestSellingProduct(),
             'title' => 'Home | Market'
         ]);

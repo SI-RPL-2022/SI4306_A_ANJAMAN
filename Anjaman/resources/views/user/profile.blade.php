@@ -36,7 +36,7 @@ Anjaman | Profile
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <center><img src="{{ asset('storage/images/' . Auth::user()->profile_picture) }}" onerror="this.src='{{asset('/images/' . Auth::user()->profile_picture)}}'" width="100" height="100" class="rounded-circle me-2"></center>
+                                    <center><img src="{{ asset('storage/images/' . Auth::user()->profile_picture) }}" onerror="this.src='{{asset('/images/' . Auth::user()->profile_picture)}}'" width="100" height="100" class="rounded-circle me-2" style="object-fit: cover;"></center>
                                     <center style="margin-bottom: 20px; margin-top: 20px;"><a style="color:#8E654E" href="#UploadImage" data-toggle="modal">Edit Profile Picture</a></center>
                                     <table class="table">
                                         <tr>
@@ -127,36 +127,87 @@ Anjaman | Profile
                                         </thead>
                                         <tbody>
                                         @foreach ($orders as $order)
-                                            <tr>
-                                                <td>{{$order->id}}</td>
-                                                <td>{{$addresses->fullname}}</td>
-                                                <td>{{$order->created_at}}</td>
-                                                <td>{{$order->status}}</td>
-                                        
-                                                <td> 
-                                                    @foreach ($order_details as $order_detail) 
-                                                        @if ($order_detail->order_id == $order->id)
-                                                            {{ $order_detail->name }}<br> 
-                                                        @endif 
-                                                    @endforeach
-                                                </td>
-                                                <td> 
-                                                    @foreach ($order_details as $order_detail) 
-                                                        @if ($order_detail->order_id == $order->id)
-                                                            x {{ $order_detail->quantity }}<br> 
-                                                        @endif 
-                                                    @endforeach
-                                                </td>
-                                                @php
-                                                $subtotal = 0;
-                                                    foreach ($order_details as $order_detail) {
-                                                        if ($order_detail->order_id == $order->id)
-                                                            $subtotal += $order_detail->quantity * $order_detail->price ;
-                                                    }
-                                                @endphp
-                                                <td> {{$order->shipper}} </td>
-                                                <td> {{$subtotal + $order->shipper}} </td>
+                                            <tr class="table-active">
+                                                <td colspan="9" style="font-weight: 600;">Invoice No. {{$order->id}}</td>
                                             </tr>
+                                            @foreach ($order_details as $order_detail)
+                                                @if ($order_detail->order_id == $order->id)
+                                                    <tr>
+                                                        <td>{{$addresses->fullname}}</td>
+                                                        <td>{{$order->created_at}}</td>
+                                                        <td>{{$order->status}}</td>
+                                                        <td>{{$order_detail->name}}</td>
+                                                        <td> x {{$order_detail->quantity}}<br> </td>
+                                                        <td>{{$order->shipper}}</td>
+                                                        <td>{{($order_detail->price * $order_detail->quantity) + $order->shipper}}</td>
+                                                        <td>
+                                                            @if ($order->status == "Selesai" && $order_detail->status_review == true)
+                                                                <button href="#exampleModal" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" disabled>
+                                                                    <i class="fas fa-pencil fa-sm text-white-50"></i> Review
+                                                                </button>
+                                                            @endif
+
+                                                            @if ($order->status != "Selesai")
+                                                                <button href="#exampleModal" class="btn btn-sm btn-dark shadow-sm" data-toggle="modal" disabled>
+                                                                    <i class="fas fa-pencil fa-sm text-white-50"></i> Review
+                                                                </button>
+                                                            @endif
+
+                                                            @if ($order->status == "Selesai" && $order_detail->status_review == false)
+                                                                <a href="#exampleModal" class="btn btn-sm btn-success shadow-sm" data-toggle="modal">
+                                                                    <i class="fas fa-pencil fa-sm text-white-50"></i> Review
+                                                                </a>
+                                                                <form action="/user/addreviews/{{ $order_detail->id }}" method="post">
+                                                                @csrf
+                                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="exampleModalLabel">Review Product</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="img-product">
+                                                                                        <img src="{{asset('storage/images/' . $order_detail->image)}}" alt="">
+                                                                                    </div>
+                                                                                    <div class="container-kanan">
+                                                                                        <div class="name-star">
+                                                                                            <h1>{{$order_detail->name}}</h1>
+                                                                                            <div class="rating-css">
+                                                                                                <div class="star-icon">
+                                                                                                    <input type="radio" value="1" name="product_rating" checked id="rating1">
+                                                                                                    <label for="rating1" class="fa fa-star"></label>
+                                                                                                    <input type="radio" value="2" name="product_rating" id="rating2">
+                                                                                                    <label for="rating2" class="fa fa-star"></label>
+                                                                                                    <input type="radio" value="3" name="product_rating" id="rating3">
+                                                                                                    <label for="rating3" class="fa fa-star"></label>
+                                                                                                    <input type="radio" value="4" name="product_rating" id="rating4">
+                                                                                                    <label for="rating4" class="fa fa-star"></label>
+                                                                                                    <input type="radio" value="5" name="product_rating" id="rating5">
+                                                                                                    <label for="rating5" class="fa fa-star"></label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="textarea">
+                                                                                            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
                                         @endforeach
                                         </tbody>
                                     </table>

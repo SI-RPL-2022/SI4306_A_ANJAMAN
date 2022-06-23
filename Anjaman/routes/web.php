@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/editaddress/{id}', [UserController::class, 'edit']);
     Route::post('/user/updateaddress/{id}', [UserController::class, 'update']);
     Route::post('/user/upload_image/{id}', [UserController::class, 'edit_profilepic']);
+    Route::post('/user/addreviews/{id}', [UserController::class, 'review']);
 });
 
 // user management (krisar)

@@ -951,3 +951,152 @@ header .btn-get-started:hover {
 .main-checkouts .container .button-purchase {
   margin: 40px 0 100px 0;
 }
+
+.modal .modal-dialog .modal-content .modal-body {
+  display: flex;
+  gap: 80px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .img-product {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .img-product img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.modal .modal-dialog .modal-content .modal-body .container-kanan {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal .modal-dialog .modal-content .modal-body .container-kanan textarea{
+  width: 100%;
+  height: 100px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .container-kanan h1 {
+  font-size: 26px;
+}
+
+/* rating */
+.rating-css div {
+  color: #071C4D;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+.rating-css input {
+  display: none;
+}
+.rating-css input + label {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.rating-css input:checked + label ~ label {
+  color: #b4afaf;
+}
+.rating-css label:active {
+  transform: scale(0.8);
+  transition: 0.3s ease;
+}
+
+/* End of Star Rating */
+
+/* rating */
+.star-remaining div {
+  color: #071C4D;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+.star-remaining input {
+  display: none;
+}
+.star-remaining input + label {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.star-remaining input:checked + label ~ label {
+  color: #b4afaf;
+}
+.star-remaining label:active {
+  transform: scale(0.8);
+  transition: 0.3s ease;
+}
+
+/* End of Star Rating */
+
+.section-best-seller {
+  padding: 80px 170px 0 170px;
+}
+
+.section-best-seller h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+
+.section-best-seller .container-bestseller {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.section-best-seller .container-bestseller .card {
+  width: 260px;
+  height: 320px;
+  border-radius: 12px;
+  padding: 12px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.section-best-seller .container-bestseller .card .container-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+}
+
+.section-best-seller .container-bestseller .card .container-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section-best-seller .container-bestseller .card .container-content h4 {
+  font-size: 16px;
+}
+
+.section-best-seller .container-bestseller :hover {
+  background-color: #222222;
+  -webkit-transition: 0.6s ease-out;
+  transition: 0.6s ease-out;
+  -webkit-transition-delay: 0.16s;
+          transition-delay: 0.16s;
+}
+
+.section-best-seller .container-bestseller :hover .card {
+  transform: scale(0.8);
+}
+
+.section-best-seller .container-bestseller :hover .container-content .icon-star {
+  color: #fff;
+}
+
+.section-best-seller .container-bestseller :hover .container-content h4 {
+  font-size: 16px;
+  color: #fff;
+}

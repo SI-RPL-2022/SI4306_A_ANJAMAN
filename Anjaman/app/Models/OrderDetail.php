@@ -10,6 +10,9 @@ class OrderDetail extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'status_rating'
+    ];
     
     public function orders(){
         return $this->belongsTo(Order::class);
@@ -20,7 +23,7 @@ class OrderDetail extends Model
             ->join('products as p', 'od.product_id', '=', 'p.id')
             ->join('orders as o', 'od.order_id', '=', 'o.id')
             ->join('addresses as a', 'o.address_id', '=', 'a.id')
-            ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'o.status', 
+            ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.image', 'o.status', 
                     'a.address', 'a.subdistrict', 'a.city', 'a.province', 'a.postal_code', 'a.phone_number', 'a.fullname')
             ->where('o.id', $id)
             ->get();
@@ -31,7 +34,7 @@ class OrderDetail extends Model
         $order_details = DB::table('order_details as od')
             ->join('products as p', 'od.product_id', '=', 'p.id')
             ->join('orders as o', 'od.order_id', '=', 'o.id')
-            ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'o.status')
+            ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.image', 'o.status')
             ->where('o.username', $username)
             ->where('o.status', null);
 
@@ -42,7 +45,7 @@ class OrderDetail extends Model
                     $order_details = DB::table('order_details as od')
                     ->join('products as p', 'od.product_id', '=', 'p.id')
                     ->join('orders as o', 'od.order_id', '=', 'o.id')
-                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'o.status')
+                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.image', 'o.status')
                     ->where('o.username', $username)
                     ->where('o.status', $stat)
                     ->where('o.in_cancel_request', 2)
@@ -54,7 +57,7 @@ class OrderDetail extends Model
                 $order_details = DB::table('order_details as od')
                     ->join('products as p', 'od.product_id', '=', 'p.id')
                     ->join('orders as o', 'od.order_id', '=', 'o.id')
-                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'o.status')
+                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.image', 'o.status')
                     ->where('o.username', $username)
                     ->where('o.status', $status)
                     ->union($order_details); 
@@ -69,7 +72,7 @@ class OrderDetail extends Model
         $order_details = DB::table('order_details as od')
             ->join('products as p', 'od.product_id', '=', 'p.id')
             ->join('orders as o', 'od.order_id', '=', 'o.id')
-            ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.weight', 'o.supplier', 'o.status')
+            ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.image', 'p.weight', 'o.supplier', 'o.status')
             ->where('o.supplier', $supplier)
             ->where('o.status', null);
 
@@ -80,7 +83,7 @@ class OrderDetail extends Model
                     $order_details = DB::table('order_details as od')
                     ->join('products as p', 'od.product_id', '=', 'p.id')
                     ->join('orders as o', 'od.order_id', '=', 'o.id')
-                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.weight', 'o.supplier', 'o.status')
+                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.image', 'p.weight', 'o.supplier', 'o.status')
                     ->where('o.supplier', $supplier)
                     ->where('o.status', $stat)
                     ->where('o.in_cancel_request', 1)
@@ -92,7 +95,7 @@ class OrderDetail extends Model
                 $order_details = DB::table('order_details as od')
                     ->join('products as p', 'od.product_id', '=', 'p.id')
                     ->join('orders as o', 'od.order_id', '=', 'o.id')
-                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.weight', 'o.supplier', 'o.status')
+                    ->select('od.*', 'p.name', 'p.price', 'p.stock', 'p.category', 'p.image', 'p.weight', 'o.supplier', 'o.status')
                     ->where('o.supplier', $supplier)
                     ->where('o.status', $status)
                     ->union($order_details); 
