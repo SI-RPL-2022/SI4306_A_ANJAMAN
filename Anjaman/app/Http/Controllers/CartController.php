@@ -24,7 +24,7 @@ class CartController extends Controller
             DB::table('carts')->insert($cart);
         }
 
-        return back();
+        return redirect('/user/cart');
     }
 
     public function show() {
