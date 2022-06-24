@@ -1147,3 +1147,103 @@ header .btn-get-started:hover {
   text-align: right;
   color: #909090;
 }
+
+/* Profile Image */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-images-cover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.container-images-cover .form-group-images-gallery {
+  width: 140px;
+  height: 140px;
+  border-radius: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #fff;
+  border: 2px dashed #aaaaaa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.container-images-cover .form-group-images-gallery .image-placeholder {
+  position: absolute;
+  width: 135px;
+  height: 135px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container-images-cover .form-group-images-gallery .image-placeholder img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 200px;
+}
+
+.container-images-cover .form-group-images-gallery .file-placeholder {
+  width: 140px;
+  height: 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container-images-cover .form-group-images-gallery .file-placeholder .content-image-upload {
+  margin-top: 12px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+}
+
+.container-images-cover .form-group-images-gallery .file-placeholder .content-image-upload .fa-cloud-upload-alt {
+  font-size: 40px;
+}
+
+.container-images-cover .form-group-images-gallery .file-placeholder .close-btn {
+  position: absolute;
+  margin-left: 120px;
+  font-size: 16px;
+  display: none;
+}

@@ -64,18 +64,35 @@ Anjaman | Profile
                         <form action="/user/upload_image/{{$user->id}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div id="UploadImage" class="modal fade">
-                                <div class="modal-dialog modal-confirm">
+                                <div class="modal-dialog modal-confirm modal-sm modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header justify-content-center">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            </div>
                                             <div class="modal-body text-center">
-                                            <h4>Upload Image</h4>	
                                                 @csrf
-                                                <div class="mb-3">
-                                                    <input name="profile_picture" class="form-control" type="file" id="formFile">
+                                                <div class="form-group-cover">
+                                                    <label for="image">Profile Picture</label>
+                                                    <div class="container-images-cover">
+                                                        <div id="second-input-thumbnail" onclick="mainInputActiveThumbnail()" class="form-group-images-gallery">
+                                                            <div class="image-placeholder">
+                                                                <img id="image-thumbnail" alt="">
+                                                            </div>
+                                                            <div class="file-placeholder">
+                                                                <div class="content-image-upload">
+                                                                    <i class="fas fa-cloud-upload-alt"></i>
+                                                                    <p>No file choosen!</p>
+                                                                </div>
+                                                                <div class="close-btn">
+                                                                    <i class="fas fa-times"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="image-choose-btn">
+                                                                <input id="main-input-thumbnail" type="file" name="profile_picture" hidden>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            <button class="btn btn-success" type="submit">Submit!</button>
+                                                <button class="btn btn-success" style="margin-top: -40px;" type="submit">Submit!</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -226,4 +243,25 @@ Anjaman | Profile
 
     </div>
     <!-- End of Page Wrapper -->
+
+    <script>
+        const mainInputThumbnail = document.querySelector("#main-input-thumbnail");
+        const secondInputThumbnail = document.querySelector("#second-input-thumbnail");
+        const imgthumbnail = document.querySelector("#image-thumbnail");
+
+        function mainInputActiveThumbnail() {
+            mainInputThumbnail.click();
+        }
+        mainInputThumbnail.addEventListener("change", function() {
+            const file = this.files[0];
+            if(file) {
+                const reader = new FileReader();
+                reader.onload = function() {
+                    const result = reader.result;
+                    imgthumbnail.src = result;
+                    }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 @endsection
