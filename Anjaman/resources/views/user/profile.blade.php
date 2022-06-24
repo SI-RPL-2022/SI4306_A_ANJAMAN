@@ -70,7 +70,7 @@ Anjaman | Profile
                                             <div class="modal-body text-center">
                                                 @csrf
                                                 <div class="form-group-cover">
-                                                    <label for="image">Profile Picture</label>
+                                                    <label for="image">Upload Your Picture</label>
                                                     <div class="container-images-cover">
                                                         <div id="second-input-thumbnail" onclick="mainInputActiveThumbnail()" class="form-group-images-gallery">
                                                             <div class="image-placeholder">

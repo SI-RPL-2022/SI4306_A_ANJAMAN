@@ -169,20 +169,30 @@ Anjaman | Home
                 <div class="card card-testimonial text-center">
                   <div class="testimonial-content">
                     <img src="{{asset('storage/images/' . $feedback->profile_picture)}}" onerror="this.src='{{asset('/images/' . $feedback->profile_picture)}}'" class="mb-4 rounded-circle"
-                      style="width: 150px; height: 150px;" />
+                      style="width: 150px; height: 150px; object-fit: cover;"/>
                     <h3 class="mb-4">{{$feedback->fullname}}</h3>
                     <p class="testimonials">
                       {{'“ '.$feedback->feedback. ' “'}}
                     </p>
                   </div>
-                  <hr />
-                  <div class="star">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
+                  <hr/>
+                  <div class="star-remaining">
+                    <div class="icon-star">
+                    @if($feedback)
+                      @for ($i =1; $i<= $feedback->rating; $i++)
+                        <input type="radio" value="{{$i}}" name="web_rating" checked id="rating{{$i}}">
+                        <label for="rating{{$i}}" class="fa fa-star"></label>
+                      @endfor
+                    @else
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    @endif
+                    </div>
                   </div>
+                  
                 </div>
               </div>
             @endforeach
@@ -196,20 +206,36 @@ Anjaman | Home
         <div class="modal-dialog modal-confirm">
           <div class="modal-content">
             <div class="modal-header justify-content-center">
-            <div>
+              <div>
                 <img src="images/ilus_krisar.png" alt="" style="width:50%" />
-            </div>
+              </div>
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body text-center">
               <h4>Kritik & Saran</h4>	
                 @csrf
-                <div class="form-group">
+                <div class="form-group" style="margin-top: -70px;">
+                  <div class="name-star">
+                    <div class="rating-css">
+                      <div class="star-icon">
+                        <input type="radio" value="1" name="web_rating" checked id="ratinput1">
+                        <label for="ratinput1" class="fa fa-star"></label>
+                        <input type="radio" value="2" name="web_rating" id="ratinput2">
+                        <label for="ratinput2" class="fa fa-star"></label>
+                        <input type="radio" value="3" name="web_rating" id="ratinput3">
+                        <label for="ratinput3" class="fa fa-star"></label>
+                        <input type="radio" value="4" name="web_rating" id="ratinput4">
+                        <label for="ratinput4" class="fa fa-star"></label>
+                        <input type="radio" value="5" name="web_rating" id="ratinput5">
+                        <label for="ratinput5" class="fa fa-star"></label>
+                      </div>
+                    </div>
+                  </div>
                   <label for="exampleFormControlTextarea1">Masukkan Kritik & Saran Anda</label>
                   <textarea class="form-control" name="feedback" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
               </form>
-              <button class="btn btn-success" type="submit">Submit!</button>
+              <button class="btn btn-success" type="submit" style="margin-top: -50px;">Submit!</button>
             </div>
           </div>
         </div>

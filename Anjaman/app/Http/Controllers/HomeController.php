@@ -23,6 +23,7 @@ class HomeController extends Controller
 
         $fb->user_id = $request->user()->id;
         $fb->feedback = $request['feedback'];
+        $fb->rating = $request['web_rating'];
 
         $fb->save();
 

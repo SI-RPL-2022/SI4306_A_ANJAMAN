@@ -29,6 +29,11 @@
                 Admin Manager
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/dashboard">
+                About Us
+                </a>
+            </li>
                 @endif
             </ul>
             

@@ -11,9 +11,8 @@
     // Style Buat Modal
     ?>  
     <style>
-            .modal-confirm {		
+        .modal-confirm {		
         color: #434e65;
-        width: 525px;
         }
         .modal-confirm .modal-content {
             padding: 20px;
@@ -32,8 +31,7 @@
         }
         .modal-confirm h4 {
             text-align: center;
-            font-size: 36px;
-            margin: 10px 0;
+            font-size: 28px;
         }
         .modal-confirm .form-control, .modal-confirm .btn {
             min-height: 40px;
@@ -65,8 +63,8 @@
             font-size: 58px;
             margin: -2px 0 0 -2px;
         }
-        .modal-confirm.modal-dialog {
-            margin-top: 80px;
+        .modal-confirm .btn, .modal-confirm .btn:hover {
+            color: #000;
         }
         .modal-confirm .btn, .modal-confirm .btn:active {
             color: #fff;
