@@ -45,7 +45,7 @@ Anjaman | Details
                                     <div class="card-header">Instant</div>
                                     <div class="card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="orders[{{ $i }}][shipper]" value="20000" id="flexRadioDefault1">
+                                            <input class="form-check-input" onclick="selectShipper('Instant')" type="radio" name="orders[{{ $i }}][shipper]" value="20000" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Rp. 20000
                                             </label>
@@ -58,7 +58,7 @@ Anjaman | Details
                                     <div class="card-header">Same Day</div>
                                     <div class="card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="orders[{{ $i }}][shipper]" value="12000" id="flexRadioDefault1">
+                                            <input class="form-check-input" onclick="selectShipper('Same Day')" type="radio" name="orders[{{ $i }}][shipper]" value="12000" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Rp. 12000
                                             </label>
@@ -71,7 +71,7 @@ Anjaman | Details
                                     <div class="card-header">Reguler</div>
                                     <div class="card-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="orders[{{ $i }}][shipper]" value="8000" id="flexRadioDefault1">
+                                            <input class="form-check-input" checked="checked" onclick="selectShipper('Reguler')" type="radio" name="orders[{{ $i }}][shipper]" value="8000" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Rp. 8000
                                             </label>
@@ -116,8 +116,15 @@ Anjaman | Details
                             <div class="card-sub row g-2" style="width: 100%;">
                                 <p class="card-text col-md-6 mb-3">Items</p>
                                 <p class="card-text-sub col-md-6 mb-3" style="text-align: right;">{{ $totalItem }}</p>
-                                <p class="card-text col-md-6 mb-3">Total Item</p>
-                                <p class="card-text-sub col-md-6 mb-3" style="text-align: right;">Rp. {{ $totalPrice }}</p>
+
+                                <p class="card-text col-md-6 mb-3">Subtotal</p>
+                                <p class="card-text-sub col-md-6 mb-3" style="text-align: right;">Rp. {{$totalPrice}} </p>
+
+                                <p class="card-text col-md-6 mb-3">Shipping Fee</p>
+                                <p class="card-text-sub col-md-6 mb-3" id="shipping" style="text-align: right;">Rp. 8000 </p>
+
+                                <p class="card-text col-md-6 mb-3">Total Price</p>
+                                <p class="card-text-sub col-md-6 mb-3" id="total" style="text-align: right;">Rp. {{$totalPrice}} </p>
                             </div>
                             <div class="card-footer bg-transparent border-black">
                             @foreach ($supplier['products'] as $product)
@@ -167,4 +174,22 @@ Anjaman | Details
     </div>
 </form>
 @endsection
+<script>
+
+    function selectShipper(type) {
+    var total = <?php echo $totalPrice; ?>;
+    let fee;
+    if(type === 'Instant') {
+      fee = 20000;
+    }
+    if(type === 'Same Day') {
+      fee = 12000;
+    }
+    if(type === 'Reguler') {
+      fee = 8000;
+    }
+    document.getElementById('shipping').innerHTML = 'Rp. ' + (fee);
+    document.getElementById('total').innerHTML = 'Rp. ' + (fee+total);
+  }
+</script>
 
