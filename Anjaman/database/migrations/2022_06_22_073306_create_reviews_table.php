@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('rating')->nullable();
             $table->longText('comment');
             $table->foreignId("order_detail_id")->constraint("order_details")->onDelete("cascade");
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

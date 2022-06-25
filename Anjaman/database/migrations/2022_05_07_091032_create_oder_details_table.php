@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->foreignId('order_id')->constraint("orders")->onDelete("cascade");
             $table->integer('product_id');
+            $table->boolean('status_review')->default(false);
             $table->timestamps();
         });
     }

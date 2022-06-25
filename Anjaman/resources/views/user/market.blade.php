@@ -65,7 +65,7 @@ Anjaman | Market
                     <a class="btn btn-outline-dark {{ ($showing == "topi") ? 'active' : '' }}""" href="/user/market/category=topi"
                     style="font-weight:bold">Topi</a>
                 </li>
-                <li class="tag" style="--color: #ff2392;">
+                <li class="tag" style="--color: orange;">
                     <a class="btn btn-outline-dark {{ ($showing == "pot") ? 'active' : '' }}""" href="/user/market/category=pot"
                     style="font-weight:bold">Pot</a>
                 </li>

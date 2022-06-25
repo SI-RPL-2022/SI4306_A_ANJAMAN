@@ -21,7 +21,7 @@ class MarketController extends Controller
 
     function find(Request $request){
         $request->validate([
-          'query'=>'required|min:2'
+          'query'=>'required|min:1'
        ]);
 
        $search_text = $request->input('query');
