@@ -79,7 +79,7 @@ Anjaman | Profile
                                                             <div class="file-placeholder">
                                                                 <div class="content-image-upload">
                                                                     <i class="fas fa-cloud-upload-alt"></i>
-                                                                    <p>No file choosen!</p>
+                                                                    <p>Click to upload image!</p>
                                                                 </div>
                                                                 <div class="close-btn">
                                                                     <i class="fas fa-times"></i>
@@ -129,17 +129,17 @@ Anjaman | Profile
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Invoice No.</th>
                                                 <th>Ship To</th>
                                                 <th>Date/Time</th>
                                                 <th>Status</th>
                                                 <th>Product</th>
+                                                <th>Price</th>
                                                 <th>Quantity</th>
-                                                <th>Shipping Fee</th>
-                                                <th>Total Price</th>
+                                                <th>Total</th>
+                                                <th>Review</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -154,9 +154,9 @@ Anjaman | Profile
                                                         <td>{{$order->created_at}}</td>
                                                         <td>{{$order->status}}</td>
                                                         <td>{{$order_detail->name}}</td>
+                                                        <td>{{$order_detail->price}}</td>
                                                         <td> x {{$order_detail->quantity}}<br> </td>
-                                                        <td>{{$order->shipper}}</td>
-                                                        <td>{{($order_detail->price * $order_detail->quantity) + $order->shipper}}</td>
+                                                        <td>{{($order_detail->price * $order_detail->quantity)}}</td>
                                                         <td>
                                                             @if ($order->status == "Selesai" && $order_detail->status_review == true)
                                                                 <button href="#exampleModal" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" disabled>
@@ -185,7 +185,7 @@ Anjaman | Profile
                                                                                     <span aria-hidden="true">&times;</span>
                                                                                     </button>
                                                                                 </div>
-                                                                                <div class="modal-body">
+                                                                                <div class="modal-container">
                                                                                     <div class="img-product">
                                                                                         <img src="{{asset('storage/images/' . $order_detail->image)}}" alt="">
                                                                                     </div>
@@ -223,8 +223,23 @@ Anjaman | Profile
                                                             @endif
                                                         </td>
                                                     </tr>
+                                            
                                                 @endif
                                             @endforeach
+                                            @php
+                                            $subtotal = 0;
+                                                foreach ($order_details as $order_detail) {
+                                                    if ($order_detail->order_id == $order->id)
+                                                        $subtotal += $order_detail->quantity * $order_detail->price;
+                                                }
+                                            @endphp
+                                            <tr class="table">
+                                                <td style="font-size:large; font-weight:bold" colspan="9" style="font-weight: 600;">
+                                                Subtotal &#x3164 &#x3164 &#x2009 :&#10240 {{$subtotal}} <br>
+                                                Shipping Fee &#10240:&#10240 {{$order->shipper}} <br>
+                                                Total Order &#10240 &#10240:&#10240 {{($subtotal + $order->shipper)}}
+                                                </td>
+                                            </tr>
                                         @endforeach
                                         </tbody>
                                     </table>

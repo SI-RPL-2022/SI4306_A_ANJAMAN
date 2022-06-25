@@ -113,7 +113,7 @@ Anjaman | Profile
 
                       <td>
                         <div class="col-1">
-                          <a href="/cart/destroy/{{ $product->cart_id }}" class="delete-cart-item__btn" style="color: black;">
+                          <a href="/cart/destroy/{{ $product->cart_id }}" class="delete-cart-item__btn" onclick="return confirm('Are You Sure?')" style="color: black;">
                             <i class="fa fa-trash"></i>
                           </a>
                         </div>

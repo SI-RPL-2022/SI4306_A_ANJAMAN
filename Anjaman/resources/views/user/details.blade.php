@@ -77,7 +77,6 @@ Anjaman | Details
 
     <section class="section-best-seller">
       <h1>Checkout Our Best Selling Products!</h1>
-
       <div class="container-bestseller">
         @foreach ($bestsellers->take(4) as $bestseller)
         <div class="card">
@@ -115,6 +114,14 @@ Anjaman | Details
 
     <section class="section-reviews">
       <h1>Rate and Reviews</h1>
+        @if (count($reviews) == 0)
+            <div class="container-empty" style="width: 100%; display: flex; justify-content: center; margin-left: -70;">
+                <div class="empty" style="width: 280px; text-align: center;">
+                    <img src="{{ asset('/images/peep-90.png') }}" alt="" style="width: 100%;">
+                    <h5 style="margin-top: -40px; font-weight: bold;">Order and be the first to review this product!</h5>
+                </div>
+            </div>
+        @endif
         @foreach ($reviews->take(8) as $r)
             <div class="container-review" style="margin-bottom: 40px;">
                 <div class="container-image-content">

@@ -951,6 +951,49 @@ header .btn-get-started:hover {
   margin: 40px 0 100px 0;
 }
 
+.modal .modal-dialog .modal-content .modal-container {
+  display: flex;
+  gap: 80px;
+  padding: 40px;
+}
+
+.modal .modal-dialog .modal-content .modal-container {
+  display: flex;
+  gap: 80px;
+}
+
+.modal .modal-dialog .modal-content .modal-container .img-product {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+}
+
+.modal .modal-dialog .modal-content .modal-container .img-product img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.modal .modal-dialog .modal-content .modal-container .container-kanan {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal .modal-dialog .modal-content .modal-container .container-kanan textarea{
+  width: 100%;
+  height: 100px;
+}
+
+.modal .modal-dialog .modal-content .modal-container .container-kanan h1 {
+  font-size: 26px;
+}
+
+/* Modal Landing Page */
+
 .modal .modal-dialog .modal-content .modal-body {
   display: flex;
   gap: 80px;
@@ -1254,6 +1297,7 @@ header .btn-get-started:hover {
 
 .container-content-our-team .section-header {
   text-align: center;
+  padding-top: 40px;
 }
 
 .container-content-our-team .section-header h1 {

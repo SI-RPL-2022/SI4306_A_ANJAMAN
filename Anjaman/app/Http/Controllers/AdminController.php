@@ -87,7 +87,7 @@ class AdminController extends Controller
         $order = Order::findOrFail($id);
         return view('/admin/editstatus', [
             'order' => $order,
-            'title' => 'Home | Transaksi'
+            'title' => 'Admin | Transaksi'
         ]);
     }
 

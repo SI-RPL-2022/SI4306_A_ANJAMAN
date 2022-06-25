@@ -23,15 +23,15 @@
                     Cart
                 </a>
             </li>
+            <li class="nav-item mx-md-2">
+                <a class="nav-link {{ ($title == "User | Our Team") ? 'active' : '' }}" href="/user/ourteam">
+                Our Team
+                </a>
+            </li>
             @if (auth()->user()->role=="admin")                   
             <li class="nav-item">
                 <a class="nav-link" href="/admin/dashboard">
                 Admin Manager
-                </a>
-            </li>
-            <li class="nav-item mx-md-2">
-                <a class="nav-link {{ ($title == "User | Our Team") ? 'active' : '' }}" href="/user/ourteam">
-                Our Team
                 </a>
             </li>
                 @endif
@@ -40,17 +40,15 @@
         </div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mr-auto">
             <li>
-            <form class="d-flex">
                 <a class="nav-link {{ ($title == "Home | Profile") ? 'active' : '' }}"" style=" border-radius: 10px;" href="/user/profile">
                 <img src="{{ asset('storage/images/' . Auth::user()->profile_picture) }}" onerror="this.src='{{asset('/images/' . Auth::user()->profile_picture)}}'" width="32" height="32" class="rounded-circle me-2" style="object-fit: cover;">
-                {{ Auth::user()->fullname }}
+                {{ Auth::user()->username }}
                 </a>
-            </form>
             </li>
             <li>
             <form action="/user/logout" method="post" class="d-flex">
                 @csrf
-                <button type="submit" class="btn btn-login btn-block" style=" border-radius: 10px;">
+                <button type="submit" class="btn btn-login" style=" border-radius: 10px; margin-top:4px">
                 Logout
                 </button>
             </form>

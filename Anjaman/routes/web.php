@@ -46,7 +46,6 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 // market management
-Route::group(['middleware' => 'auth'], function() {
     Route::get('/find',[MarketController::class, 'find'])->name('web.find');
     Route::get('/user/market', [MarketController::class, 'show']);
     Route::get('/user/market/category=tas', [MarketController::class, 'show_tas']);
@@ -54,7 +53,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/market/category=topi', [MarketController::class, 'show_topi']);
     Route::get('/user/market/category=pot', [MarketController::class, 'show_pot']);
     Route::get('/user/details/{id}', [MarketController::class, 'product']);
-});
 
 // cart management
 Route::group(['middleware' => 'auth'], function() {

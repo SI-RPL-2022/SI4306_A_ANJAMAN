@@ -59,7 +59,7 @@ Anjaman | Transaksi
                                                 <form action="/admin/deletemanagemarket/{{ $item->id }}" method="post" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type="submit" class="btn btn-danger">
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are You Sure?')">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                 </form>

@@ -9,7 +9,7 @@ Anjaman | Home
       anjaman
     </h1>
     <p class="mt-3">
-      Kami menghadirkan kesempatan bisnis untuk pengembangan usaha Anda
+      Kami menghadirkan kesempatan bisnis untuk pengembangan UMKM Anyaman Anda di Sumatera
     </p>
     <a href="user/market" class="btn btn-dark px-4 mt-4">
       Get Started
@@ -18,7 +18,7 @@ Anjaman | Home
 
   <main>
     <div class="container">
-      <section class="section-stats row justify-content-center" id="stats">
+      <section data-aos="fade-up" data-aos-duration="2000" class="section-stats row justify-content-center" id="stats">
         <div class="col-3 col-md-3 stats-detail text-center">
           <img src="images/Logo_Sponsor.png" alt="" style="width: 200px;">
         </div>
@@ -34,7 +34,7 @@ Anjaman | Home
       </section>
 
       <!-- Header Paket Wisata-->
-      <section class="section-level-up" id="popular">
+      <section data-aos="fade-up" data-aos-duration="2000" class="section-level-up" id="popular">
         <div class="container">
           <div class="row">
             <div class="col text-center section-level-up-heading">
@@ -42,7 +42,7 @@ Anjaman | Home
               <p>
                 Kami menghadirkan kesempatan bisnis untuk
                 <br />
-                pengembangan usaha Anda
+                pengembangan UMKM Anyaman Anda di Sumatera
               </p>
             </div>
           </div>
@@ -50,7 +50,7 @@ Anjaman | Home
       </section>
 
       <!-- Card Product Anyaman -->
-      <section class="section-popular-content" id="popularContent">
+      <section data-aos="fade-up" data-aos-duration="2000" class="section-popular-content" id="popularContent">
         <div class="container">
           <div class="section-popular-travel row justify-content-center">
             <div class="col-sm-6 col-md-4 col-lg-3">
@@ -75,7 +75,7 @@ Anjaman | Home
       <section class="section-product">
         <div class="product-right-anyaman">
           <div class="container-section">
-            <section class="section-left">
+            <section data-aos="fade-right" data-aos-duration="2000" class="section-left">
               <h1>Our Products</h1>
               <p>
                 Berbagai jenis barang
@@ -87,8 +87,8 @@ Anjaman | Home
                 <a style="text-decoration:underline; color:black; font-weight:bold" href="user/market">Lihat semua produk...</a>
             </section>
             <div class="section-right">
-              <img src="images/Product_Keranjang.png" alt="" style="border-radius: 10px;">
-              <div class="text-product">
+              <img data-aos="zoom-in" data-aos-duration="2000" src="images/Product_Keranjang.png" alt="" style="border-radius: 10px;">
+              <div data-aos="fade-left" data-aos-duration="2000"class="text-product">
                 <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Keranjang Anyaman</h1>
                 <a style="text-decoration:underline; color:black;" href="/user/market/category=keranjang">Lihat Detail</a>
@@ -100,8 +100,8 @@ Anjaman | Home
         <div class="product-left-anyaman">
           <div class="container-section">
             <section class="section-left">
-              <img src="images/Product_Tas.png" alt="" style="border-radius: 10px;">
-              <div class="text-product">
+              <img data-aos="zoom-in" data-aos-duration="2000" src="images/Product_Tas.png" alt="" style="border-radius: 10px;">
+              <div data-aos="fade-up" data-aos-duration="2000" class="text-product">
                 <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Tas Anyaman</h1>
                 <a style="text-decoration:underline; color:black;" href="/user/market/category=tas">Lihat Detail</a>
@@ -117,8 +117,8 @@ Anjaman | Home
             <section class="section-left">
             </section>
             <div class="section-right">
-              <img src="images/Product_Topi.png" alt="" style="border-radius: 10px; width: 260px;">
-              <div class="text-product">
+              <img data-aos="zoom-in" data-aos-duration="2000" src="images/Product_Topi.png" alt="" style="border-radius: 10px; width: 260px;">
+              <div data-aos="fade-up" data-aos-duration="2000" class="text-product">
                 <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Topi Anyaman</h1>
                 <a style="text-decoration:underline; color:black;" href="/user/market/category=topi">Lihat Detail</a>
@@ -130,8 +130,8 @@ Anjaman | Home
         <div class="product-left-anyaman">
           <div class="container-section">
             <section class="section-left">
-              <img src="images/Product_Pot.png" alt="" style="border-radius: 10px; width: 320px;">
-              <div class="text-product">
+              <img data-aos="zoom-in" data-aos-duration="2000"src="images/Product_Pot.png" alt="" style="border-radius: 10px; width: 320px;">
+              <div data-aos="fade-up" data-aos-duration="2000"class="text-product">
                 <h2 style="color:lightgrey ">Kategori</h2>
                 <h1>Pot Anyaman</h1>
                 <a style="text-decoration:underline; color:black;" href="/user/market/category=pot">Lihat Detail</a>
@@ -147,7 +147,7 @@ Anjaman | Home
       <section class="section-testimonials-heading" id="testimonialsHeading">
         <div class="container">
           <div class="row">
-            <div class="col text-center">
+            <div data-aos="fade-up" data-aos-duration="2000"class="col text-center">
               <h2>What They Say</h2>
               <p>
                 Sampaikan Kritik & Saran anda terhadap web kami
@@ -165,7 +165,7 @@ Anjaman | Home
         <div class="container">
           <div class="section-popular-travel row justify-content-center match-height">
             @foreach ($feedbacks->take(3) as $feedback)
-              <div class="col-sm-6 col-md-6 col-lg-4">
+              <div data-aos="zoom-in" data-aos-duration="2000" class="col-sm-6 col-md-6 col-lg-4">
                 <div class="card card-testimonial text-center">
                   <div class="testimonial-content">
                     <img src="{{asset('storage/images/' . $feedback->profile_picture)}}" onerror="this.src='{{asset('/images/' . $feedback->profile_picture)}}'" class="mb-4 rounded-circle"
@@ -242,4 +242,8 @@ Anjaman | Home
       </div>
     </form>     
   </main>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 @endsection
