@@ -79,6 +79,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/order/reject_cancel_request/{id}', [OrderController::class, 'reject_cancel_request']); // cek session
 });
 
+// our team
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/user/ourteam', [UserController::class, 'our_team_show']);
+});
+
+
 // admin management
 Route::group(['middleware' => ['auth', 'admin']], function() {
 

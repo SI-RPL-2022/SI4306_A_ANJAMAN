@@ -105,7 +105,7 @@ Anjaman | Details
             <a href="/user/details/{{ $bestseller->id }}" style="text-decoration: none; color: black;">
                 <h4 class="title-product">{{ $bestseller->name }}</h4>
             </a>
-            <h4>Stock -> {{ $bestseller->stock }}</h4>
+            <h4>Sold:  {{ $bestseller->qty }}</h4>
             <h4>Rp. {{ $bestseller->price }}</h4>
           </div>
         </div>

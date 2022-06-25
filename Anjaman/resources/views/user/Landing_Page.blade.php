@@ -49,7 +49,7 @@ Anjaman | Home
         </div>
       </section>
 
-      <!-- Card Paket Wisata -->
+      <!-- Card Product Anyaman -->
       <section class="section-popular-content" id="popularContent">
         <div class="container">
           <div class="section-popular-travel row justify-content-center">
@@ -60,12 +60,12 @@ Anjaman | Home
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
               <div class="card-travel text-center d-flex flex-column"
-                style="background-image: url('images/keranjang.png'); border-radius: 10px;">
+                style="background-image: url('images/Product_Pot.png'); border-radius: 10px;">
               </div>
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
               <div class="card-travel text-center d-flex flex-column"
-                style="background-image: url('images/keranjang.png'); border-radius: 10px;">
+                style="background-image: url('images/Product_Topi.png'); border-radius: 10px;">
               </div>
             </div>
           </div>

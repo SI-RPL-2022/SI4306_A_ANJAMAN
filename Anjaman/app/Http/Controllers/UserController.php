@@ -173,4 +173,10 @@ class UserController extends Controller
         return redirect('/user/profile');
     }
 
+    public function our_team_show() {
+        return view('/user/ourteam', [
+            'title' => 'User | Our Team',
+        ]);
+    }
+
 }

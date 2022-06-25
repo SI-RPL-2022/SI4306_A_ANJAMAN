@@ -29,9 +29,9 @@
                 Admin Manager
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/dashboard">
-                About Us
+            <li class="nav-item mx-md-2">
+                <a class="nav-link {{ ($title == "User | Our Team") ? 'active' : '' }}" href="/user/ourteam">
+                Our Team
                 </a>
             </li>
                 @endif

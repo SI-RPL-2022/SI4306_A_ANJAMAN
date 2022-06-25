@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{ url('assets/libraries/bootstrap/css/bootstrap.css') }}" />
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <link rel="stylesheet" href="{{ url('assets/styles/main.css') }}" />
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,400,700&&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet" />
