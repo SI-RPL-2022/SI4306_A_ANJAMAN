@@ -11,6 +11,7 @@ Anjaman | Transaksi
         <div id="content-wrapper" class="flex-column" style="padding-left: 300px;">
 
             <!-- Main Content -->
+            @include('layouts.flash-message')
             <div id="content">
                 
                 <!-- Begin Page Content -->

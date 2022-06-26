@@ -45,11 +45,11 @@ class AdminController extends Controller
         //Pembelian Bulan Ini
         $may = Order::getOrderByMonth('selesai', '5')->count();
         $jun = Order::getOrderByMonth('selesai', '6')->count();
+        $jul = Order::getOrderByMonth('selesai', '7')->count();
         
-        //$jul = Order::getOrderByMonth('selesai', '7')->count();
         //$agt = Order::getOrderByMonth('selesai', '8')->count();
 
-        $purchased = [$may, $jun, //$jul, $agt 
+        $purchased = [$may, $jun, $jul, //$agt 
                     ];
 
         return view('/admin/dashboard', [
@@ -105,7 +105,7 @@ class AdminController extends Controller
 
         $order->status = $request['status'];
         $order->save();
-        return redirect('/admin/transaksi');
+        return redirect('/admin/transaksi')->with('success','Status has been updated!');
     }
     
     public function detail(int $id) {
@@ -125,7 +125,7 @@ class AdminController extends Controller
         $order = Order::find($id);
         $order->delete();
 
-        return redirect('/admin/transaksi');
+        return redirect('/admin/transaksi')->with('error','Transaction has been deleted!');;
     }
     
     // Manage Market
@@ -283,7 +283,7 @@ class AdminController extends Controller
             ]);
         }
     
-        return redirect('/admin/manage_market');
+        return redirect('/admin/manage_market')->with('success','Market data has been updated!');
     }
 
     public function managemarket_destroy($id)
@@ -303,7 +303,7 @@ class AdminController extends Controller
         $product->delete();
         $galleries->each->delete();
 
-        return redirect('/admin/manage_market');
+        return redirect('/admin/manage_market')->with('error','Product has been deleted!');
     }
 
     public function feedback() {
