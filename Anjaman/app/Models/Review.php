@@ -40,4 +40,15 @@ class Review extends Model
             ->get();
             return $reviews;
     }
+
+    public static function getReview() {
+        DB::statement("SET SQL_MODE=''");
+        $review_all = DB::table('reviews as r')
+            ->join('order_details as od', 'r.order_detail_id', '=', 'od.id')
+            ->join('products as p', 'od.product_id', '=', 'p.id')
+            ->select('od.*', 'r.*', 'p.*', DB::raw('AVG(r.rating) as avgrate'))
+            ->groupBy('p.id')
+            ->get()->first();
+            return $review_all;
+    }
 }

@@ -1182,6 +1182,10 @@ header .btn-get-started:hover {
   font-size: 16px;
 }
 
+.section-reviews .container-review .container-comment-tanggal {
+  width: 800px;
+}
+
 .section-reviews .container-review .container-comment-tanggal p {
   font-size: 16px;
 }

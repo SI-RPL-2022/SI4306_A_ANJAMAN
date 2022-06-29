@@ -87,8 +87,8 @@ Anjaman | Details
           <div class="container-content">
             <div class="star-remaining">
                 <div class="icon-star">
-                @if($review)
-                    @for ($i =1; $i<= $review->avgrate; $i++)
+                @if($review_all)
+                    @for ($i =1; $i<= $review_all->avgrate; $i++)
                         <input type="radio" value="{{$i}}" name="product_rating" checked id="rating{{$i}}">
                         <label for="rating{{$i}}" class="fa fa-star"></label>
                     @endfor
